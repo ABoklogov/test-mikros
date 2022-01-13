@@ -1,0 +1,46 @@
+.box {
+  padding: 0 142px;
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: space-between;
+
+  margin-top: 11px;
+}
+
+.icon {
+  margin-right: 17px;
+}
+.item {
+  align-self: flex-end;
+}
+
+.link {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 120%;
+  color: #5c5c5c;
+  margin: 0;
+}
+.textMarker {
+  margin-right: 106px;
+  color: #0097ff;
+}
+.linkList {
+  /* width: 1138px; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  margin-right: 71px;
+  padding: 0;
+}
+
+.workingHours {
+  display: block;
+  width: 287px;
+  height: 20px;
+  color: #000c0c;
+}
