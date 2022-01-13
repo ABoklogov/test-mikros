@@ -1,0 +1,33 @@
+.box {
+  display: flex;
+  flex-direction: row;
+  padding-top: 75px;
+  padding-bottom: 32px;
+  padding-right: 142px;
+  padding-left: 142px;
+}
+
+.logo {
+  margin-right: 42px;
+}
+.title {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: 900;
+  font-size: 23px;
+  line-height: 1.09;
+  color: #0097ff;
+  margin-top: 0;
+  margin-bottom: 2px;
+}
+
+.subTitle {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 120%;
+  color: #000c0c;
+  margin-top: 0;
+  margin-bottom: 12px;
+}

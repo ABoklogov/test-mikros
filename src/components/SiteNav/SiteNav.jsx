@@ -22,11 +22,6 @@ const SiteNav = () => {
         Воронеж
       </a>
       <ul className={s.linkList}>
-        {/* <li className={s.item}>
-          <a href="#" className={s.link}>
-            Воронеж
-          </a>
-        </li> */}
         <li className={s.item}>
           <a href="#" className={s.link}>
             Новости
@@ -52,11 +47,6 @@ const SiteNav = () => {
             Оставить отзыв
           </a>
         </li>
-        {/* <li className={s.item}>
-          <p className={`${s.link} ${s.workingHours}`}>
-            Пн - Пт: 08:00 - 17:00
-          </p>
-        </li> */}
       </ul>
 
       <p className={`${s.link} ${s.workingHours} ${s.item}`}>

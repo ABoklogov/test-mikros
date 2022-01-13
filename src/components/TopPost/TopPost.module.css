@@ -21,7 +21,6 @@
   color: #ffffff;
 }
 
-/* .iconClose {
-  height: 35px;
-  width: 35px;
-} */
+.iconClose {
+  cursor: pointer;
+}
