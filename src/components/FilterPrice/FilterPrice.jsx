@@ -1,14 +1,11 @@
 import { useState } from 'react';
 import s from './FilterPrice.module.css';
-import arrowMenuFilter from '../../images/icons/arrowMenuFilter.svg';
 import Slider from '@mui/material/Slider';
+import FilterTitle from '../FilterTitle';
 
-const FilterPrice = () => {
-  const minPrice = 200;
-  const maxPrice = 10000;
-
-  const [startPrice, setStartPrice] = useState(minPrice);
-  const [lastPrice, setLastPrice] = useState(maxPrice);
+const FilterPrice = ({ options }) => {
+  const [startPrice, setStartPrice] = useState(options.minPrice);
+  const [lastPrice, setLastPrice] = useState(options.maxPrice);
   const [value, setValue] = useState([startPrice, lastPrice]);
 
   const handleChange = (_, newValue) => {
@@ -19,10 +16,7 @@ const FilterPrice = () => {
 
   return (
     <div className={s.box}>
-      <div className={s.subTitle}>
-        <img src={arrowMenuFilter} alt="arrowMenuFilter" />
-        <h2 className={s.title}>Цена, &#8381;:</h2>
-      </div>
+      <FilterTitle title={options.titles[0]} />
 
       <div className={s.subBox}>
         <button className={s.buttons}>
@@ -34,15 +28,15 @@ const FilterPrice = () => {
           до
           <span>{` ${lastPrice}`}</span>
         </button>
+        <Slider
+          className={s.slider}
+          value={value}
+          onChange={handleChange}
+          valueLabelDisplay="auto"
+          min={options.minPrice}
+          max={options.maxPrice}
+        />
       </div>
-      <Slider
-        className={s.slider}
-        value={value}
-        onChange={handleChange}
-        valueLabelDisplay="auto"
-        min={minPrice}
-        max={maxPrice}
-      />
     </div>
   );
 };

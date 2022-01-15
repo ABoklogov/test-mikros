@@ -3,3 +3,7 @@
   flex-direction: column;
   padding-left: 142px;
 }
+
+.filterSubBox {
+  margin-bottom: 32px;
+}
