@@ -24,7 +24,9 @@ function App() {
       </div>
 
       <FilterMenu className={s.filterMenuContainer}>
-        <FilterPrice />
+        <div className={s.filterPrice}>
+          <FilterPrice />
+        </div>
       </FilterMenu>
     </Container>
   );

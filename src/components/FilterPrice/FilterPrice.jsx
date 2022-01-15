@@ -4,8 +4,11 @@ import arrowMenuFilter from '../../images/icons/arrowMenuFilter.svg';
 import Slider from '@mui/material/Slider';
 
 const FilterPrice = () => {
-  const [startPrice, setStartPrice] = useState(200);
-  const [lastPrice, setLastPrice] = useState(10000);
+  const minPrice = 200;
+  const maxPrice = 10000;
+
+  const [startPrice, setStartPrice] = useState(minPrice);
+  const [lastPrice, setLastPrice] = useState(maxPrice);
   const [value, setValue] = useState([startPrice, lastPrice]);
 
   const handleChange = (_, newValue) => {
@@ -13,8 +16,6 @@ const FilterPrice = () => {
     setStartPrice(newValue[0]);
     setLastPrice(newValue[1]);
   };
-
-  const showDefaultValue = value => {};
 
   return (
     <div className={s.box}>
@@ -39,16 +40,8 @@ const FilterPrice = () => {
         value={value}
         onChange={handleChange}
         valueLabelDisplay="auto"
-        min={startPrice}
-        step={1}
-        max={lastPrice}
-        // getAriaLabel={index =>
-        //   index === 0 ? 'Minimum price' : 'Maximum price'
-        // }
-        defaultValue={[
-          showDefaultValue(startPrice),
-          showDefaultValue(lastPrice),
-        ]}
+        min={minPrice}
+        max={maxPrice}
       />
     </div>
   );
