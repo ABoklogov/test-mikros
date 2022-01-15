@@ -10,6 +10,11 @@
 .logo {
   margin-right: 42px;
 }
+
+.subMenuLeft {
+  margin-right: auto;
+}
+
 .title {
   /* font-family: Gotham Pro; */
   font-style: normal;
@@ -30,4 +35,82 @@
   color: #000c0c;
   margin-top: 0;
   margin-bottom: 12px;
+}
+
+.searchBox {
+  display: flex;
+  flex-direction: row;
+}
+
+.topBox {
+  display: flex;
+  flex-direction: row;
+}
+
+.topBox > span:first-child {
+  margin-right: 108px;
+  margin-bottom: 17px;
+}
+
+.bottomBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tel {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 120%;
+  color: #000c0c;
+  margin-top: 0;
+  margin-bottom: 3px;
+}
+
+.telText {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 130%;
+  color: #a8a8a8;
+  margin: 0;
+}
+
+.telLink {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 130%;
+  color: #0097ff;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+.links > p {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 120%;
+  text-align: center;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.fullPrice {
+  color: #0097ff;
+}
+.linksText {
+  color: #5c5c5c;
+}
+
+.links > span {
+  text-align: center;
 }

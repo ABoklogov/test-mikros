@@ -1,0 +1,27 @@
+.formSearch {
+  position: relative;
+}
+
+.inputSearch {
+  width: 653px;
+  height: 49px;
+  border: 2px solid #dddddd;
+  box-sizing: border-box;
+  border-radius: 10px;
+
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 120%;
+  color: #5c5c5c;
+  padding-left: 7px;
+}
+
+.buttonSearch {
+  position: absolute;
+  right: 11px;
+  top: 11px;
+  border: none;
+  background-color: #fff;
+}
