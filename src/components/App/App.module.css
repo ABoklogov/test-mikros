@@ -1,3 +1,20 @@
-/* a {
+a {
   text-decoration: none;
-} */
+}
+
+.path {
+  padding-top: 27px;
+  padding-left: 142px;
+  padding-right: 142px;
+  padding-bottom: 56px;
+}
+
+.title {
+  padding: 0 142px;
+  padding-bottom: 66px;
+}
+
+.listPossibleGoods {
+  padding: 0 142px;
+  padding-bottom: 93px;
+}

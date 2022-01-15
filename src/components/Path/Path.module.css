@@ -1,0 +1,19 @@
+.pathBox {
+  display: flex;
+  flex-direction: row;
+}
+
+.folder {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 120%;
+  color: #0097ff;
+  margin: 0;
+  margin-right: 25px;
+}
+
+.folder + img:not(:last-child) {
+  margin-right: 25px;
+}

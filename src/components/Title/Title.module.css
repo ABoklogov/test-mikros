@@ -1,0 +1,28 @@
+.box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.title {
+  display: inline-block;
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 0.95;
+  color: #000c0c;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 30px;
+}
+
+.numberGoods {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 1.29;
+  color: #a8a8a8;
+  margin: 0;
+}
