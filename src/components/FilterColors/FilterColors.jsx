@@ -24,25 +24,29 @@ const FilterColors = () => {
         getIsOpenMenu={getIsOpenMenuColors}
       />
 
-      {getIsOpenMenuColors &&
-        options.colors?.map(({ color, label }) => (
-          <div className={s.box} key={color}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  sx={{
-                    color: `${color}`,
-                    '&.Mui-checked': {
+      {getIsOpenMenuColors && (
+        <div>
+          {options.colors?.map(({ color, label }) => (
+            <div className={s.box} key={color}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    sx={{
                       color: `${color}`,
-                    },
-                    '& .MuiSvgIcon-root': { fontSize: 20 },
-                  }}
-                />
-              }
-              label={label}
-            />
-          </div>
-        ))}
+                      '&.Mui-checked': {
+                        color: `${color}`,
+                      },
+                      '& .MuiSvgIcon-root': { fontSize: 20 },
+                    }}
+                  />
+                }
+                label={label}
+              />
+            </div>
+          ))}
+          <p className={s.showAll}>Показать все</p>
+        </div>
+      )}
     </div>
   );
 };

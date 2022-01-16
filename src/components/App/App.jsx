@@ -5,6 +5,7 @@ import Path from '../Path';
 import Title from '../Title';
 import ListPossibleGoods from '../ListPossibleGoods';
 import FilterMenu from '../FilterMenu';
+import ProductList from '../ProductList';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       </div>
 
       <FilterMenu />
+      <ProductList />
     </Container>
   );
 }

@@ -26,25 +26,31 @@ const FilterDimensions = () => {
         getIsOpenMenu={getIsOpenMenuDimensions}
       />
 
-      {getIsOpenMenuDimensions &&
-        options.dimensions?.map(el => (
-          <div className={s.box} key={el}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  sx={{
-                    color: '#DDDDDD',
-                    '&.Mui-checked': {
-                      color: '#0097FF',
-                    },
-                    '& .MuiSvgIcon-root': { fontSize: 24 },
-                  }}
-                />
-              }
-              label={el}
-            />
-          </div>
-        ))}
+      {getIsOpenMenuDimensions && (
+        <div>
+          {options.dimensions?.map(el => (
+            <div className={s.box} key={el}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    sx={{
+                      color: '#DDDDDD',
+                      '&.Mui-checked': {
+                        color: '#0097FF',
+                      },
+                      '& .MuiSvgIcon-root': {
+                        fontSize: 24,
+                      },
+                    }}
+                  />
+                }
+                label={el}
+              />
+            </div>
+          ))}
+          <p className={s.showAll}>Показать все</p>
+        </div>
+      )}
     </div>
   );
 };
