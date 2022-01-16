@@ -4,6 +4,7 @@ import * as menuAction from './menu-action.js';
 const initialState = {
   isOpenMenuPrice: true,
   isOpenMenuDimensions: true,
+  isOpenMenuColors: true,
 };
 
 const menuSlice = createSlice({
@@ -20,9 +21,15 @@ const menuSlice = createSlice({
     [menuAction.openMenuDimensions](state) {
       state.isOpenMenuDimensions = true;
     },
-
     [menuAction.closeMenuDimensions](state) {
       state.isOpenMenuDimensions = false;
+    },
+
+    [menuAction.openMenuColors](state) {
+      state.isOpenMenuColors = true;
+    },
+    [menuAction.closeMenuColors](state) {
+      state.isOpenMenuColors = false;
     },
   },
 });

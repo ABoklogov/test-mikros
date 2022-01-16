@@ -5,7 +5,7 @@ const FilterTitle = ({ title, showMenu, getIsOpenMenu }) => {
   return (
     <div className={s.subTitle} onClick={showMenu}>
       <img
-        className={getIsOpenMenu && `${s.arrowDirection}`}
+        className={getIsOpenMenu ? `${s.arrowUp}` : `${s.arrowDown}`}
         src={arrowMenuFilter}
         alt="arrowMenuFilter"
       />

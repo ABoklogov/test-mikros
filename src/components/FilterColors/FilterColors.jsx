@@ -1,47 +1,45 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { menuSelectors, menuAction } from '../../redux/menu';
-import s from './FilterDimensions.module.css';
+import s from './FilterColors.module.css';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import FilterTitle from '../FilterTitle';
 import options from '../../options';
 
-const FilterDimensions = () => {
-  const getIsOpenMenuDimensions = useSelector(
-    menuSelectors.getIsOpenMenuDimensions,
-  );
+const FilterColors = () => {
+  const getIsOpenMenuColors = useSelector(menuSelectors.getIsOpenMenuColors);
   const dispatch = useDispatch();
 
   const showMenu = () => {
-    getIsOpenMenuDimensions
-      ? dispatch(menuAction.closeMenuDimensions())
-      : dispatch(menuAction.openMenuDimensions());
+    getIsOpenMenuColors
+      ? dispatch(menuAction.closeMenuColors())
+      : dispatch(menuAction.openMenuColors());
   };
 
   return (
     <div className={s.box}>
       <FilterTitle
-        title={options.titles[1]}
+        title={options.titles[2]}
         showMenu={showMenu}
-        getIsOpenMenu={getIsOpenMenuDimensions}
+        getIsOpenMenu={getIsOpenMenuColors}
       />
 
-      {getIsOpenMenuDimensions &&
-        options.dimensions?.map(el => (
-          <div className={s.box} key={el}>
+      {getIsOpenMenuColors &&
+        options.colors?.map(({ color, label }) => (
+          <div className={s.box} key={color}>
             <FormControlLabel
               control={
                 <Checkbox
                   sx={{
-                    color: '#DDDDDD',
+                    color: `${color}`,
                     '&.Mui-checked': {
-                      color: '#0097FF',
+                      color: `${color}`,
                     },
-                    '& .MuiSvgIcon-root': { fontSize: 24 },
+                    '& .MuiSvgIcon-root': { fontSize: 20 },
                   }}
                 />
               }
-              label={el}
+              label={label}
             />
           </div>
         ))}
@@ -49,4 +47,4 @@ const FilterDimensions = () => {
   );
 };
 
-export default FilterDimensions;
+export default FilterColors;
