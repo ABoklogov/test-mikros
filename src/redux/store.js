@@ -27,6 +27,7 @@ const menuPersistConfig = {
 
 export const store = configureStore({
   reducer: {
+    // menu: menuReducer,
     menu: persistReducer(menuPersistConfig, menuReducer),
   },
   middleware,
