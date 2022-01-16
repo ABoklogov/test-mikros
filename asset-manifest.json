@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/test-mikros/static/css/main.df0955da.css",
+    "main.js": "/test-mikros/static/js/main.4f30d0fb.js",
+    "static/media/logo.svg": "/test-mikros/static/media/logo.7a4a3bed3ec9b27b7f6ea48183299931.svg",
+    "static/media/full.svg": "/test-mikros/static/media/full.313e7cae5f51d19552f2aba87c71a856.svg",
+    "static/media/marker.svg": "/test-mikros/static/media/marker.aac878deaf53d32095f7912b205a63e3.svg",
+    "static/media/person.svg": "/test-mikros/static/media/person.4d9f4d02e679bbd835c418767f69d8bc.svg",
+    "index.html": "/test-mikros/index.html",
+    "static/media/love.svg": "/test-mikros/static/media/love.07b4b8a48bb4140b190d76656678a811.svg",
+    "static/media/search.svg": "/test-mikros/static/media/search.1aa232605fa93bf6c31f4c75d6f329f9.svg",
+    "static/media/catalog.svg": "/test-mikros/static/media/catalog.170408d27e9b73291f9da1a7be7459eb.svg",
+    "static/media/arrow.svg": "/test-mikros/static/media/arrow.42f592441ac95d71bb8b9ee3c8d2a648.svg",
+    "static/media/close.svg": "/test-mikros/static/media/close.2ae23591f5e122f2e14ec8403f6e127b.svg",
+    "static/media/arrowBottom.svg": "/test-mikros/static/media/arrowBottom.e46d98df4a11b056675cf9bd33b54526.svg",
+    "static/media/arrowMenuFilter.svg": "/test-mikros/static/media/arrowMenuFilter.1a9e9f5b239386a753c96424bb3255d2.svg",
+    "main.df0955da.css.map": "/test-mikros/static/css/main.df0955da.css.map",
+    "main.4f30d0fb.js.map": "/test-mikros/static/js/main.4f30d0fb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.df0955da.css",
+    "static/js/main.4f30d0fb.js"
+  ]
+}
