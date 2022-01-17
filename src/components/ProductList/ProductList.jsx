@@ -15,9 +15,9 @@ const ProductList = () => {
   }, []);
 
   return (
-    <div className={s.box}>
+    <ul className={s.box}>
       {filteredProducts?.map(({ _id, _source }) => (
-        <div key={_id}>
+        <li className={s.productItem} key={_id}>
           <img src={_source.DETAIL_PICTURE} alt={_source.RM_NAME} />
           <p>{_source.PROPERTYS.CML2_ARTICLE}</p>
           <p>{_source.PRICE.BASE} ₽</p>
@@ -26,9 +26,9 @@ const ProductList = () => {
             <span>Ростов-на-дону - {`${_source.STORE[475]}`}</span>
             <span>Воронеж - {`${_source.STORE[472]}`}</span>
           </p>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 

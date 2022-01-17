@@ -1,0 +1,26 @@
+.btnText {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 120%;
+  color: #000c0c;
+  text-transform: none;
+  margin-right: 5px;
+}
+
+.arrowUp {
+  transform: rotate(0deg);
+}
+
+.arrowDown {
+  transform: rotate(180deg);
+}
+
+.menuItem {
+  width: 150px;
+}
+
+.button {
+  padding-left: 0;
+}

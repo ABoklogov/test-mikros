@@ -36,6 +36,13 @@ const options = {
       label: 'Черный',
     },
   ],
+  sortMenu: {
+    textMenu: ['Сортировать по', 'Отображать по'],
+    menuItem: {
+      sort: ['категориям', 'алфавиту', 'цене'],
+      display: ['20', '40', '60'],
+    },
+  },
 };
 
 export default options;

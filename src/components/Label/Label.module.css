@@ -1,0 +1,23 @@
+.label {
+  display: inline-flex;
+  align-items: center;
+  background: #dddddd;
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.label > img {
+  cursor: pointer;
+}
+
+.textLabel {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 0.92;
+  text-align: center;
+  letter-spacing: 0.08em;
+  color: #000c0c;
+  margin-right: 10px;
+}

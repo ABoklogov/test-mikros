@@ -22,5 +22,5 @@ a {
 .body {
   display: flex;
   flex-direction: row;
-  padding-right: 142px;
+  padding: 0 142px;
 }

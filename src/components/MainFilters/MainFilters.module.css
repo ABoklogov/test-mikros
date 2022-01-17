@@ -1,0 +1,38 @@
+.title {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: 900;
+  font-size: 23px;
+  line-height: 25px;
+  color: #000c0c;
+  margin: 0;
+  margin-bottom: 32px;
+}
+
+.subBox {
+  display: flex;
+}
+
+.btnResetAll {
+  background-color: #fff;
+  border: none;
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 120%;
+  color: #5c5c5c;
+  cursor: pointer;
+  padding: 0;
+}
+
+.listLabels {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.indent {
+  margin-right: 12px;
+}

@@ -1,0 +1,15 @@
+.box {
+  padding-left: 93px;
+  width: 100%;
+  /* width: 1151px; */
+}
+
+.indent {
+  margin-bottom: 32px;
+}
+
+.border {
+  width: 100%;
+  border-top: 1px solid #dddddd;
+  margin-bottom: 16px;
+}

@@ -1,0 +1,11 @@
+.subBox {
+  display: flex;
+  justify-content: space-between;
+}
+.locationItems > img {
+  cursor: pointer;
+}
+
+.locationItems > img:not(:last-child) {
+  margin-right: 11px;
+}
