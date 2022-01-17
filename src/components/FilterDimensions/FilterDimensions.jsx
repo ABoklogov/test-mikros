@@ -20,14 +20,19 @@ const FilterDimensions = () => {
 
   return (
     <div className={s.box}>
-      <FilterTitle
-        title={options.titles[1]}
-        showMenu={showMenu}
-        getIsOpenMenu={getIsOpenMenuDimensions}
-      />
+      <div className={s.title}>
+        <FilterTitle
+          title={options.titles[1]}
+          showMenu={showMenu}
+          getIsOpenMenu={getIsOpenMenuDimensions}
+        />
+        {getIsOpenMenuDimensions && (
+          <span className={s.titlePrefix}>, см:</span>
+        )}
+      </div>
 
       {getIsOpenMenuDimensions && (
-        <div>
+        <div className={s.subBox}>
           {options.dimensions?.map(el => (
             <div className={s.box} key={el}>
               <FormControlLabel

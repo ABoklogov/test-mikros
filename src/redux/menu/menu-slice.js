@@ -5,6 +5,7 @@ const initialState = {
   isOpenMenuPrice: true,
   isOpenMenuDimensions: true,
   isOpenMenuColors: true,
+  isOpenMenuCollection: false,
 };
 
 const menuSlice = createSlice({
@@ -30,6 +31,13 @@ const menuSlice = createSlice({
     },
     [menuAction.closeMenuColors](state) {
       state.isOpenMenuColors = false;
+    },
+
+    [menuAction.openMenuCollection](state) {
+      state.isOpenMenuCollection = true;
+    },
+    [menuAction.closeMenuCollection](state) {
+      state.isOpenMenuCollection = false;
     },
   },
 });

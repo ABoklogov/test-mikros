@@ -8,3 +8,6 @@ export const closeMenuDimensions = createAction('menu/closeMenuDimensions');
 
 export const openMenuColors = createAction('menu/openMenuColors');
 export const closeMenuColors = createAction('menu/closeMenuColors');
+
+export const openMenuCollection = createAction('menu/openMenuCollection');
+export const closeMenuCollection = createAction('menu/closeMenuCollection');

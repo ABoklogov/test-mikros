@@ -2,6 +2,7 @@ import s from './FilterMenu.module.css';
 import FilterPrice from '../FilterPrice';
 import FilterDimensions from '../FilterDimensions';
 import FilterColors from '../FilterColors';
+import FilterCollection from '../FilterCollection';
 
 const FilterMenu = () => {
   return (
@@ -14,8 +15,12 @@ const FilterMenu = () => {
         <FilterDimensions />
       </div>
 
-      <div>
-        <FilterColors className={s.filterSubBox} />
+      <div className={s.filterSubBox}>
+        <FilterColors />
+      </div>
+
+      <div className={s.filterSubBox}>
+        <FilterCollection />
       </div>
     </div>
   );

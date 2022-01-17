@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import s from './ProductList.module.css';
 import data from '../../data.json';
 const products = data.hits.hits;
+console.log(products);
 
 const ProductList = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);

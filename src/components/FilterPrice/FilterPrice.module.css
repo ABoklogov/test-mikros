@@ -2,6 +2,25 @@
   width: 392px;
 }
 
+.subBox {
+  padding-top: 32px;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.titlePrefix {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: 900;
+  font-size: 23px;
+  line-height: 1.09;
+  color: #000c0c;
+}
+
 .subTitle > img {
   margin-right: 10px;
   cursor: pointer;

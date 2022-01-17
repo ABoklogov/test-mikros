@@ -18,14 +18,17 @@ const FilterColors = () => {
 
   return (
     <div className={s.box}>
-      <FilterTitle
-        title={options.titles[2]}
-        showMenu={showMenu}
-        getIsOpenMenu={getIsOpenMenuColors}
-      />
+      <div className={s.title}>
+        <FilterTitle
+          title={options.titles[2]}
+          showMenu={showMenu}
+          getIsOpenMenu={getIsOpenMenuColors}
+        />
+        {getIsOpenMenuColors && <span className={s.titlePrefix}>:</span>}
+      </div>
 
       {getIsOpenMenuColors && (
-        <div>
+        <div className={s.subBox}>
           {options.colors?.map(({ color, label }) => (
             <div className={s.box} key={color}>
               <FormControlLabel

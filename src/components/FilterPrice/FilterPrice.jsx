@@ -28,11 +28,15 @@ const FilterPrice = () => {
 
   return (
     <div className={s.box}>
-      <FilterTitle
-        title={options.titles[0]}
-        showMenu={showMenu}
-        getIsOpenMenu={getIsOpenMenuPrice}
-      />
+      <div className={s.title}>
+        <FilterTitle
+          title={options.titles[0]}
+          showMenu={showMenu}
+          getIsOpenMenu={getIsOpenMenuPrice}
+        />
+
+        {getIsOpenMenuPrice && <span className={s.titlePrefix}>, ₽:</span>}
+      </div>
 
       {getIsOpenMenuPrice && (
         <div className={s.subBox}>

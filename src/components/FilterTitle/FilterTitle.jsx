@@ -9,7 +9,7 @@ const FilterTitle = ({ title, showMenu, getIsOpenMenu }) => {
         src={arrowMenuFilter}
         alt="arrowMenuFilter"
       />
-      <h2 className={s.title}>{`${title}:`}</h2>
+      <h2 className={s.title}>{`${title}`}</h2>
     </div>
   );
 };

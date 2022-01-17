@@ -5,7 +5,7 @@ import Path from '../Path';
 import Title from '../Title';
 import ListPossibleGoods from '../ListPossibleGoods';
 import FilterMenu from '../FilterMenu';
-import ProductList from '../ProductList';
+import Main from '../Main';
 
 function App() {
   return (
@@ -23,8 +23,10 @@ function App() {
         <ListPossibleGoods />
       </div>
 
-      <FilterMenu />
-      <ProductList />
+      <div className={s.body}>
+        <FilterMenu />
+        <Main />
+      </div>
     </Container>
   );
 }

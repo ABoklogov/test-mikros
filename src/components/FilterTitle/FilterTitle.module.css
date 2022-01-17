@@ -1,7 +1,6 @@
 .subTitle {
   display: flex;
   align-items: center;
-  margin-bottom: 32px;
 }
 
 .subTitle > img {

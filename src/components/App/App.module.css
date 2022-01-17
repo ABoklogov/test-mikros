@@ -18,3 +18,9 @@ a {
   padding: 0 142px;
   padding-bottom: 93px;
 }
+
+.body {
+  display: flex;
+  flex-direction: row;
+  padding-right: 142px;
+}
