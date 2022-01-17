@@ -3,6 +3,8 @@ import FilterPrice from '../FilterPrice';
 import FilterDimensions from '../FilterDimensions';
 import FilterColors from '../FilterColors';
 import FilterCollection from '../FilterCollection';
+import FilterProductMicros from '../FilterProductMicros';
+import FilterNoText from '../FilterNoText';
 
 const FilterMenu = () => {
   return (
@@ -21,6 +23,14 @@ const FilterMenu = () => {
 
       <div className={s.filterSubBox}>
         <FilterCollection />
+      </div>
+
+      <div className={s.filterSubBox}>
+        <FilterProductMicros />
+      </div>
+
+      <div className={s.filterSubBox}>
+        <FilterNoText />
       </div>
     </div>
   );

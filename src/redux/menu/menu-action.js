@@ -11,3 +11,11 @@ export const closeMenuColors = createAction('menu/closeMenuColors');
 
 export const openMenuCollection = createAction('menu/openMenuCollection');
 export const closeMenuCollection = createAction('menu/closeMenuCollection');
+
+export const openMenuProductMicros = createAction('menu/openMenuProductMicros');
+export const closeMenuProductMicros = createAction(
+  'menu/closeMenuProductMicros',
+);
+
+export const openMenuNoText = createAction('menu/openMenuNoText');
+export const closeMenuNoText = createAction('menu/closeMenuNoText');

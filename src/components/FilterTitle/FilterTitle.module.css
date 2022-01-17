@@ -20,9 +20,9 @@
 }
 
 .arrowUp {
-  transform: rotate(180deg);
+  transform: rotate(0deg);
 }
 
 .arrowDown {
-  transform: rotate(0deg);
+  transform: rotate(180deg);
 }

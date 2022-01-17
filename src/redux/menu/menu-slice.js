@@ -6,6 +6,7 @@ const initialState = {
   isOpenMenuDimensions: true,
   isOpenMenuColors: true,
   isOpenMenuCollection: false,
+  isOpenMenuNoText: false,
 };
 
 const menuSlice = createSlice({
@@ -38,6 +39,20 @@ const menuSlice = createSlice({
     },
     [menuAction.closeMenuCollection](state) {
       state.isOpenMenuCollection = false;
+    },
+
+    [menuAction.openMenuProductMicros](state) {
+      state.isOpenMenuProductMicros = true;
+    },
+    [menuAction.closeMenuProductMicros](state) {
+      state.isOpenMenuProductMicros = false;
+    },
+
+    [menuAction.openMenuNoText](state) {
+      state.isOpenMenuNoText = true;
+    },
+    [menuAction.closeMenuNoText](state) {
+      state.isOpenMenuNoText = false;
     },
   },
 });
