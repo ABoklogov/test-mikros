@@ -1,0 +1,85 @@
+.box {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.articuleBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.articuleBox > img {
+  cursor: pointer;
+}
+
+.articule {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 120%;
+  color: #a8a8a8;
+}
+
+.articuleNum {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 120%;
+  color: #000c0c;
+}
+
+.imageBox {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.label {
+  position: absolute;
+  width: 128px;
+  height: 44px;
+  left: 0;
+  bottom: 0;
+  background: #ffffff;
+  border-radius: 0px 25px 0px 0px;
+  padding: 12px 18px;
+  box-sizing: border-box;
+}
+
+.label > span {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: 900;
+  font-size: 17px;
+  line-height: 20px;
+  text-align: center;
+  color: #9cc330;
+}
+
+.infoProduct {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 120%;
+  color: #000c0c;
+  margin-bottom: 12px;
+}
+
+.price {
+  /* font-family: Gotham Pro; */
+  font-style: normal;
+  font-weight: 900;
+  font-size: 23px;
+  line-height: 1.09;
+  color: #0097ff;
+}
