@@ -11,6 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import menuReducer from './menu/menu-slice';
+import productsReducer from './products/products-slice';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -27,8 +28,8 @@ const menuPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    // menu: menuReducer,
     menu: persistReducer(menuPersistConfig, menuReducer),
+    products: productsReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

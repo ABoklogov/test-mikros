@@ -2,17 +2,32 @@ import s from './ProductItem.module.css';
 import product from '../../images/product.png';
 import love from '../../images/icons/love.svg';
 import wet from '../../images/icons/wet.svg';
+import { timeUntil } from '@tobynatooor/countdown';
+import ButtonBasket from '../ButtonBasket';
+import CounterButton from '../CounterButton';
 
 const ProductItem = ({ source }) => {
+  const sale = source.PROPERTYS.SKIDKA !== '0';
   const label = source.PROPERTYS.TOVAR_DNYA === 'Да';
+  const salePercent = source.PROPERTYS.SKIDKA;
+  const articule = source.PROPERTYS.CML2_ARTICLE;
+  const name = source.RM_NAME;
   const oldPrice = source.PRICE.OLD_PRICE;
+  const basePrice = source.PRICE.BASE;
+  const rostov = source.STORE[475];
+  const voronezh = source.STORE[472];
+  const baseUnit = source.PROPERTYS.CML2_BASE_UNIT;
+  const minPartiya = source.PROPERTYS.MINIMALNAYA_PARTIYA;
+  const endPoint = timeUntil('2022-02-28T20:20:20');
+  const endPointString = `${endPoint.days % 365}:${endPoint.hours % 24}:${
+    endPoint.minutes % 60
+  }`;
 
   return (
     <div className={s.box}>
       <div className={s.articuleBox}>
         <p className={s.articule}>
-          Артикул:{' '}
-          <span className={s.articuleNum}>{source.PROPERTYS.CML2_ARTICLE}</span>
+          Артикул: <span className={s.articuleNum}>{articule}</span>
         </p>
         <img src={love} alt="love" />
       </div>
@@ -27,23 +42,48 @@ const ProductItem = ({ source }) => {
       </div>
 
       <div>
-        <p className={s.infoProduct}>{source.RM_NAME}</p>
+        <p className={s.infoProduct}>{name}</p>
+
         <div className={s.priceBox}>
-          <p className={s.price}>{source.PRICE.BASE} ₽</p>
+          <p className={s.price}>{basePrice} ₽</p>
           {oldPrice !== 0 && <span className={s.oldPrice}>{oldPrice}</span>}
 
           {oldPrice !== 0 && (
             <div className={s.wet}>
               <img src={wet} alt="wet" />
-              <span>-50%</span>
+              <span>-{salePercent}%</span>
             </div>
           )}
         </div>
-        <p>
-          Наличие на складах:
-          <span>Ростов-на-дону - {`${source.STORE[475]}`}</span>
-          <span>Воронеж - {`${source.STORE[472]}`}</span>
-        </p>
+
+        <div className={s.availabilityBox}>
+          <div className={s.availabilitySubBox}>
+            <p>Наличие на складах:</p>
+            <span>Ростов-на-дону - {`${rostov}`} упак.</span>
+            <span>Воронеж - {`${voronezh}`} упак.</span>
+          </div>
+          <ButtonBasket />
+        </div>
+
+        <div
+          className={s.footerBox}
+          style={
+            sale
+              ? { justifyContent: 'space-between' }
+              : { justifyContent: 'flex-end' }
+          }
+        >
+          {sale && (
+            <p className={s.endPromotion}>
+              До конца акции:
+              <span>{` ${endPointString}`}</span>
+            </p>
+          )}
+          <p className={s.consignment}>
+            Мин. партия:
+            <span>{` ${minPartiya} ${baseUnit}.`}</span>
+          </p>
+        </div>
       </div>
     </div>
   );
