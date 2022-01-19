@@ -5,6 +5,7 @@ import wet from '../../images/icons/wet.svg';
 
 const ProductItem = ({ source }) => {
   const label = source.PROPERTYS.TOVAR_DNYA === 'Да';
+  const oldPrice = source.PRICE.OLD_PRICE;
 
   return (
     <div className={s.box}>
@@ -29,7 +30,14 @@ const ProductItem = ({ source }) => {
         <p className={s.infoProduct}>{source.RM_NAME}</p>
         <div className={s.priceBox}>
           <p className={s.price}>{source.PRICE.BASE} ₽</p>
-          <img src={wet} alt="wet" />
+          {oldPrice !== 0 && <span className={s.oldPrice}>{oldPrice}</span>}
+
+          {oldPrice !== 0 && (
+            <div className={s.wet}>
+              <img src={wet} alt="wet" />
+              <span>-50%</span>
+            </div>
+          )}
         </div>
         <p>
           Наличие на складах:
