@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   productsSelectors,
@@ -10,20 +10,27 @@ import ProductItem from '../ProductItem';
 
 const ProductList = () => {
   const products = useSelector(productsSelectors.getListProduct);
-  console.log(products);
+  // console.log(products);
   const sortOrder = useSelector(productsSelectors.getSortOrder);
+  const displayBy = useSelector(productsSelectors.getDisplayBy);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (sortOrder === 'алфавиту') {
+    dispatch(productsOperations.fetchProducts());
+
+    if (sortOrder === 'алфавиту')
       dispatch(productsAction.alphabeticalSorting());
-    }
-    // if (sortOrder === 'цене') {
-    // }
-    if (sortOrder === 'base') {
-      dispatch(productsOperations.fetchProducts());
-    }
-  }, [dispatch, sortOrder]);
+
+    if (sortOrder === 'цене') dispatch(productsAction.priceSorting());
+
+    if (sortOrder === 'base') dispatch(productsOperations.fetchProducts());
+
+    if (displayBy === '20') dispatch(productsAction.displayBy20());
+
+    if (displayBy === '40') dispatch(productsAction.displayBy40());
+
+    if (displayBy === '60') dispatch(productsAction.displayBy60());
+  }, [dispatch, displayBy, sortOrder]);
 
   return (
     <ul className={s.box}>

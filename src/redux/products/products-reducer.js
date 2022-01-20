@@ -5,7 +5,12 @@ import {
   selectCategories,
   fetchProduct,
   sort,
+  display,
   alphabeticalSorting,
+  priceSorting,
+  displayBy20,
+  displayBy40,
+  displayBy60,
 } from './products-action';
 
 const productCategories = createReducer([], {
@@ -17,18 +22,29 @@ const products = createReducer([], {
 
   [alphabeticalSorting]: state => {
     const sortProducts = state.sort((a, b) => {
-      const nameA = a._source.RM_NAME.replace(/ .*/, '');
-      const nameB = b._source.RM_NAME.replace(/ .*/, '');
+      const nameA = a._source.RM_NAME;
+      const nameB = b._source.RM_NAME;
       if (nameA < nameB) return -1;
       if (nameA > nameB) return 1;
       return 0;
     });
     return sortProducts;
   },
+
+  [priceSorting]: state =>
+    state.sort((a, b) => a._source.PRICE.BASE - b._source.PRICE.BASE),
+
+  [displayBy20]: state => state.slice(0, 2),
+  [displayBy40]: state => state.slice(0, 4),
+  [displayBy60]: state => state.slice(0, 6),
 });
 
 const sortOrder = createReducer('base', {
   [sort]: (_, { payload }) => payload,
+});
+
+const displayBy = createReducer('20', {
+  [display]: (_, { payload }) => payload,
 });
 
 // const filterCategories = createReducer([], {
@@ -39,6 +55,7 @@ const productsReducer = combineReducers({
   productCategories,
   products,
   sortOrder,
+  displayBy,
   // filterCategories,
 });
 

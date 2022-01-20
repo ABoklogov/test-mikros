@@ -9,6 +9,9 @@ import arrowMenuFilter from '../../images/icons/arrowMenuFilter.svg';
 
 const SortMenu = ({ textMenu, textItems }) => {
   const dispatch = useDispatch();
+  const displayBy = useSelector(productsSelectors.getDisplayBy);
+  const sortMenuDisplay = textMenu === 'Отображать по';
+
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -21,6 +24,9 @@ const SortMenu = ({ textMenu, textItems }) => {
 
     if (event === 'алфавиту' || event === 'цене') {
       dispatch(productsAction.sort(event));
+    }
+    if (event === '20' || event === '40' || event === '60') {
+      dispatch(productsAction.display(event));
     }
     setAnchorEl(null);
   };
@@ -36,6 +42,7 @@ const SortMenu = ({ textMenu, textItems }) => {
         onClick={handleClick}
       >
         <span className={s.btnText}>{textMenu}</span>
+        {sortMenuDisplay && <span className={s.displayBy}>{displayBy}</span>}
         <img
           className={open ? `${s.arrowUp}` : `${s.arrowDown}`}
           src={arrowMenuFilter}

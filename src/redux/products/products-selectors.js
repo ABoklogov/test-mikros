@@ -4,3 +4,5 @@ export const getListProductCategories = state =>
 export const getListProduct = state => state.products.products;
 
 export const getSortOrder = state => state.products.sortOrder;
+
+export const getDisplayBy = state => state.products.displayBy;
