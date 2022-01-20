@@ -34,9 +34,9 @@ const products = createReducer([], {
   [priceSorting]: state =>
     state.sort((a, b) => a._source.PRICE.BASE - b._source.PRICE.BASE),
 
-  [displayBy20]: state => state.slice(0, 2),
-  [displayBy40]: state => state.slice(0, 4),
-  [displayBy60]: state => state.slice(0, 6),
+  [displayBy20]: state => state.slice(0, 20),
+  [displayBy40]: state => state.slice(0, 40),
+  [displayBy60]: state => state.slice(0, 60),
 });
 
 const sortOrder = createReducer('base', {
