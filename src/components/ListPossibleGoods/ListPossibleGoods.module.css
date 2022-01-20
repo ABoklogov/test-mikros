@@ -1,3 +1,13 @@
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.box > li {
+  list-style: none;
+}
+
 .buttons {
   background: rgba(64, 171, 244, 0.1);
   border-radius: 10px;
@@ -17,6 +27,7 @@
   color: #5c5c5c;
 }
 
-.buttons:not(:last-child) {
+.box > li:not(:last-child) {
   margin-right: 60px;
+  margin-bottom: 10px;
 }

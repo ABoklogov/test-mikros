@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import menuReducer from './menu/menu-slice';
-import productsReducer from './products/products-slice';
+import productsReducer from './products/products-reducer';
 
 const middleware = [
   ...getDefaultMiddleware({

@@ -1,23 +1,42 @@
 import s from './ListPossibleGoods.module.css';
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { productsSelectors, productsAction } from '../../redux/products';
+import { productsSelectors, productsOperations } from '../../redux/products';
 
 const ListPossibleGoods = () => {
-  const dispatch = useDispatch();
+  const [listDeletedCategories, setListDeletedCategories] = useState([]);
+
   const getListProductCategories = useSelector(
     productsSelectors.getListProductCategories,
   );
-  console.log(getListProductCategories);
-  dispatch(productsAction.fetchProductCategories());
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(productsOperations.fetchCategories());
+  }, [dispatch]);
+
+  const chooseCategory = e => {
+    getListProductCategories.forEach(el => {
+      if (el.NAME === e.target.innerText)
+        setListDeletedCategories(listDeletedCategories => [
+          el,
+          ...listDeletedCategories,
+        ]);
+    });
+  };
+
+  console.log(listDeletedCategories);
 
   return (
-    <div className={s.box}>
-      <button className={s.buttons}>Открытки</button>
-      <button className={s.buttons}>Конверты для денег</button>
-      <button className={s.buttons}>Приглашения</button>
-      <button className={s.buttons}>Плакаты, гирлянды</button>
-    </div>
+    <ul className={s.box}>
+      {getListProductCategories?.map(({ NAME, ID }) => (
+        <li key={ID}>
+          <button onClick={chooseCategory} className={s.buttons}>
+            {NAME}
+          </button>
+        </li>
+      ))}
+    </ul>
   );
 };
 
