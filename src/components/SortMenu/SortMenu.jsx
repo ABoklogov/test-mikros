@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { productsSelectors, productsAction } from '../../redux/products';
 import s from './SortMenu.module.css';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
@@ -6,15 +8,23 @@ import MenuItem from '@mui/material/MenuItem';
 import arrowMenuFilter from '../../images/icons/arrowMenuFilter.svg';
 
 const SortMenu = ({ textMenu, textItems }) => {
+  const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+
+  const handleClose = e => {
+    const event = e.currentTarget.innerText;
+
+    if (event === 'алфавиту' || event === 'цене') {
+      dispatch(productsAction.sort(event));
+    }
     setAnchorEl(null);
   };
+
   return (
     <>
       <Button

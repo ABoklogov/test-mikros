@@ -118,10 +118,10 @@
             }
           },
           "STORE": {
-            "472": 0,
+            "472": 1,
             "473": 1,
             "474": 1,
-            "475": 0,
+            "475": 1,
             "476": 1,
             "477": 3,
             "478": 2,
@@ -155,7 +155,7 @@
         "_id": "493046",
         "_score": null,
         "_source": {
-          "RM_NAME": "Каркас металлический шестигранный",
+          "RM_NAME": "Баркас металлический шестигранный",
           "RM_ARTICLE": "ч44320",
           "URL": "/catalog/balls/oborudovanie/prochee/stend_karkas_metallicheskiy_shestigrannyy/",
           "DETAIL_PICTURE": "/upload/iblock/24d/db760d31-a111-11eb-bb79-a4bf014f73a1_ab499f50-ad8d-11eb-bb7a-a4bf014f73a0.jpg",

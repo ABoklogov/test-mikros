@@ -1,4 +1,4 @@
-import { fetchProductCategories } from './products-action';
+import { fetchProductCategories, fetchProduct } from './products-action';
 import removeDuplicates from '../../lib/removeDuplicates.js';
 import data from '../../data.json';
 const products = data.hits.hits;
@@ -13,6 +13,7 @@ export const fetchCategories = () => async dispatch => {
           NAME: el.NAME,
           ID: el.ID,
           URL: el.URL,
+          CLICKED: false,
         });
       });
     });
@@ -20,4 +21,11 @@ export const fetchCategories = () => async dispatch => {
   });
 
   dispatch(fetchProductCategories(data));
+};
+
+export const fetchProducts = () => async dispatch => {
+  const newProducts = products.filter(
+    ({ _source }) => _source.STORE[472] !== 0 && _source.STORE[475] !== 0,
+  );
+  dispatch(fetchProduct(newProducts));
 };
