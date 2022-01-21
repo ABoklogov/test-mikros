@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { menuSelectors, menuAction } from '../../redux/menu';
+import { productsSelectors, productsAction } from '../../redux/products';
 import s from './FilterPrice.module.css';
 import Slider from '@mui/material/Slider';
 import FilterTitle from '../FilterTitle';
 import options from '../../options';
 
 const FilterPrice = () => {
+  // const getPriceRange = useSelector(productsSelectors.getPriceRange);
   const [startPrice, setStartPrice] = useState(options.minPrice);
   const [lastPrice, setLastPrice] = useState(options.maxPrice);
   const [value, setValue] = useState([startPrice, lastPrice]);
@@ -22,6 +24,8 @@ const FilterPrice = () => {
 
   const handleChange = (_, newValue) => {
     setValue(newValue);
+    dispatch(productsAction.fixPriceRange(value));
+
     setStartPrice(newValue[0]);
     setLastPrice(newValue[1]);
   };

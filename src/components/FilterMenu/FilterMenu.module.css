@@ -14,10 +14,27 @@
   padding: 17px 22px;
 }
 
+.buttonShow:hover {
+  background-color: #778d3a;
+  border-color: #778d3a;
+}
+.buttonShow:active {
+  background-color: #c7e86d;
+  border-color: #c7e86d;
+}
+
 .buttonReset {
   background-color: #bab6b6;
   border-color: #bab6b6;
   padding: 17px 22px;
+}
+.buttonReset:hover {
+  background-color: #8c8585;
+  border-color: #8c8585;
+}
+.buttonReset:active {
+  background-color: #ccc9c9;
+  border-color: #ccc9c9;
 }
 
 .boxButtons {

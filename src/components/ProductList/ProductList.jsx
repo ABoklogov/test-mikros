@@ -13,10 +13,13 @@ const ProductList = () => {
   // console.log(products);
   const sortOrder = useSelector(productsSelectors.getSortOrder);
   const displayBy = useSelector(productsSelectors.getDisplayBy);
+  const dataFiltered = useSelector(productsSelectors.getDataFiltered);
+  const priceRange = useSelector(productsSelectors.getPriceRange);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(productsOperations.fetchProducts());
+    // console.log(dataFiltered);
 
     if (sortOrder === 'алфавиту')
       dispatch(productsAction.alphabeticalSorting());
@@ -30,7 +33,14 @@ const ProductList = () => {
     if (displayBy === '40') dispatch(productsAction.displayBy40());
 
     if (displayBy === '60') dispatch(productsAction.displayBy60());
-  }, [dispatch, displayBy, sortOrder]);
+
+    if (dataFiltered) {
+      dispatch(productsAction.showProductsFilteredPrice(priceRange));
+      // dispatch(productsAction.showFilteredData(false));
+    }
+  }, [dataFiltered, dispatch, displayBy, priceRange, sortOrder]);
+
+  // if (dataFiltered) dispatch(productsAction.showFilteredData(false));
 
   return (
     <ul className={s.box}>

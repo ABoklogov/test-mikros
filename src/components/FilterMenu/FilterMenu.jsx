@@ -1,4 +1,6 @@
 import s from './FilterMenu.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { productsSelectors, productsAction } from '../../redux/products';
 import FilterPrice from '../FilterPrice';
 import FilterDimensions from '../FilterDimensions';
 import FilterColors from '../FilterColors';
@@ -11,6 +13,16 @@ import options from '../../options.js';
 const FilterMenu = () => {
   const textShowBtn = options.buttons.show.text;
   const textResetBtn = options.buttons.reset.text;
+  const getDataFiltered = useSelector(productsSelectors.getDataFiltered);
+  const dispatch = useDispatch();
+
+  const showFilteredData = () => {
+    // if (!getDataFiltered) {
+    dispatch(productsAction.showFilteredData(true));
+    //   return;
+    // }
+    // dispatch(productsAction.showFilteredData(false));
+  };
 
   return (
     <div className={s.filterMenuContainer}>
@@ -39,7 +51,11 @@ const FilterMenu = () => {
       </div>
 
       <div className={s.boxButtons}>
-        <Button text={textShowBtn} className={s.buttonShow} />
+        <Button
+          onClick={showFilteredData}
+          text={textShowBtn}
+          className={s.buttonShow}
+        />
         <Button text={textResetBtn} className={s.buttonReset} />
       </div>
     </div>

@@ -11,7 +11,11 @@ import {
   displayBy20,
   displayBy40,
   displayBy60,
+  fixPriceRange,
+  showFilteredData,
+  showProductsFilteredPrice,
 } from './products-action';
+// import options from '../../options';
 
 const productCategories = createReducer([], {
   [fetchProductCategories]: (_, { payload }) => payload,
@@ -20,16 +24,14 @@ const productCategories = createReducer([], {
 const products = createReducer([], {
   [fetchProduct]: (_, { payload }) => payload,
 
-  [alphabeticalSorting]: state => {
-    const sortProducts = state.sort((a, b) => {
+  [alphabeticalSorting]: state =>
+    state.sort((a, b) => {
       const nameA = a._source.RM_NAME;
       const nameB = b._source.RM_NAME;
       if (nameA < nameB) return -1;
       if (nameA > nameB) return 1;
       return 0;
-    });
-    return sortProducts;
-  },
+    }),
 
   [priceSorting]: state =>
     state.sort((a, b) => a._source.PRICE.BASE - b._source.PRICE.BASE),
@@ -37,6 +39,14 @@ const products = createReducer([], {
   [displayBy20]: state => state.slice(0, 20),
   [displayBy40]: state => state.slice(0, 40),
   [displayBy60]: state => state.slice(0, 60),
+
+  [showProductsFilteredPrice]: (state, { payload }) =>
+    state.filter(
+      product =>
+        payload[0] <= product._source.PRICE.BASE &&
+        product._source.PRICE.BASE <= payload[1],
+    ),
+  // [priceRange]: (_, { payload }) => payload,
 });
 
 const sortOrder = createReducer('base', {
@@ -47,6 +57,13 @@ const displayBy = createReducer('20', {
   [display]: (_, { payload }) => payload,
 });
 
+const priceRange = createReducer([], {
+  [fixPriceRange]: (_, { payload }) => payload,
+});
+
+const dataFiltered = createReducer(false, {
+  [showFilteredData]: (state, { payload }) => (state = payload),
+});
 // const filterCategories = createReducer([], {
 //   [selectCategories]: (state, { payload }) => [...state, payload],
 // });
@@ -56,6 +73,8 @@ const productsReducer = combineReducers({
   products,
   sortOrder,
   displayBy,
+  priceRange,
+  dataFiltered,
   // filterCategories,
 });
 

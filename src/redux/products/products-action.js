@@ -15,4 +15,12 @@ export const priceSorting = createAction('products/priceSorting');
 export const displayBy20 = createAction('products/displayBy20');
 export const displayBy40 = createAction('products/displayBy40');
 export const displayBy60 = createAction('products/displayBy60');
+
+export const fixPriceRange = createAction('products/fixPriceRange');
+
+export const showFilteredData = createAction('products/showFilteredData');
+
+export const showProductsFilteredPrice = createAction(
+  'products/showProductsFilteredPrice',
+);
 // export const selectCategories = createAction('products/selectCategories');
