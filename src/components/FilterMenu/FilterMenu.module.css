@@ -7,3 +7,20 @@
 .filterSubBox {
   margin-bottom: 32px;
 }
+
+.buttonShow {
+  background-color: #9cc330;
+  border-color: #9cc330;
+  padding: 17px 22px;
+}
+
+.buttonReset {
+  background-color: #bab6b6;
+  border-color: #bab6b6;
+  padding: 17px 22px;
+}
+
+.boxButtons {
+  display: flex;
+  justify-content: center;
+}

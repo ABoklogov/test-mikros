@@ -1,11 +1,10 @@
 import s from './Button.module.css';
-import iconKatalog from '../../images/icons/catalog.svg';
 
-const Button = () => {
+const Button = ({ text, alt, icon, className = '' }) => {
   return (
-    <button className={s.button}>
-      <img className={s.iconKatalog} src={iconKatalog} alt="icon -katalog" />
-      <span className={s.buttonText}>каталог</span>
+    <button className={`${s.button} ${className}`}>
+      {icon && <img className={s.iconKatalog} src={icon} alt={alt} />}
+      <span className={s.buttonText}>{text}</span>
     </button>
   );
 };

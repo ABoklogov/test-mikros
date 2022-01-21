@@ -3,21 +3,26 @@ import logo from '../../images/icons/logo.svg';
 import full from '../../images/icons/full.svg';
 import person from '../../images/icons/person.svg';
 import love from '../../images/icons/love.svg';
+import iconKatalog from '../../images/icons/catalog.svg';
 import Button from '../Button';
 import InputSearch from '../InputSearch';
+import options from '../../options.js';
 
 const MenuHeader = () => {
+  const textBtn = options.buttons.katalog.text;
+  const altIconBtn = options.buttons.katalog.alt;
+
   return (
     <div className={s.box}>
       <a href="#" className={s.logo}>
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="logo" width={190} />
       </a>
 
       <div className={s.subMenuLeft}>
         <p className={s.title}>Крупнейший выбор товаров для праздника</p>
         <p className={s.subTitle}>Оптовый интернет - магазин</p>
         <div className={s.searchBox}>
-          <Button />
+          <Button text={textBtn} alt={altIconBtn} icon={iconKatalog} />
           <InputSearch />
         </div>
       </div>

@@ -43,6 +43,20 @@ const options = {
       display: ['20', '40', '60'],
     },
   },
+  buttons: {
+    katalog: {
+      text: 'каталог',
+      alt: 'icon-katalog',
+    },
+    show: {
+      text: 'показать',
+      alt: null,
+    },
+    reset: {
+      text: 'сбросить',
+      alt: null,
+    },
+  },
 };
 
 export default options;

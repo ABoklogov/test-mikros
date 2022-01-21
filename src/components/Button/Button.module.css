@@ -1,7 +1,7 @@
 .button {
   display: flex;
   align-items: center;
-  background: #0097ff;
+  background-color: #0097ff;
   border: solid 1px #0097ff;
   border-radius: 10px;
   padding-top: 9px;
