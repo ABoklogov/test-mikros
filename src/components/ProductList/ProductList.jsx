@@ -9,13 +9,13 @@ import s from './ProductList.module.css';
 import ProductItem from '../ProductItem';
 
 const ProductList = () => {
+  const dispatch = useDispatch();
   const products = useSelector(productsSelectors.getListProduct);
   // console.log(products);
   const sortOrder = useSelector(productsSelectors.getSortOrder);
   const displayBy = useSelector(productsSelectors.getDisplayBy);
   const dataFiltered = useSelector(productsSelectors.getDataFiltered);
   const priceRange = useSelector(productsSelectors.getPriceRange);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(productsOperations.fetchProducts());

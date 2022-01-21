@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { menuSelectors, menuAction } from '../../redux/menu';
 import { productsSelectors, productsAction } from '../../redux/products';
@@ -14,7 +14,19 @@ const FilterPrice = () => {
   const [value, setValue] = useState([startPrice, lastPrice]);
 
   const getIsOpenMenuPrice = useSelector(menuSelectors.getIsOpenMenuPrice);
+  const dataFiltered = useSelector(productsSelectors.getDataFiltered);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!dataFiltered) {
+      setStartPrice(options.minPrice);
+      setLastPrice(options.maxPrice);
+      setValue([options.minPrice, options.maxPrice]);
+      dispatch(
+        productsAction.fixPriceRange([options.minPrice, options.maxPrice]),
+      );
+    }
+  }, [dataFiltered]);
 
   const showMenu = () => {
     getIsOpenMenuPrice
@@ -24,7 +36,7 @@ const FilterPrice = () => {
 
   const handleChange = (_, newValue) => {
     setValue(newValue);
-    dispatch(productsAction.fixPriceRange(value));
+    if (!dataFiltered) dispatch(productsAction.fixPriceRange(value));
 
     setStartPrice(newValue[0]);
     setLastPrice(newValue[1]);

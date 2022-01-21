@@ -46,7 +46,6 @@ const products = createReducer([], {
         payload[0] <= product._source.PRICE.BASE &&
         product._source.PRICE.BASE <= payload[1],
     ),
-  // [priceRange]: (_, { payload }) => payload,
 });
 
 const sortOrder = createReducer('base', {
@@ -58,7 +57,7 @@ const displayBy = createReducer('20', {
 });
 
 const priceRange = createReducer([], {
-  [fixPriceRange]: (_, { payload }) => payload,
+  [fixPriceRange]: (state, { payload }) => (state = payload),
 });
 
 const dataFiltered = createReducer(false, {

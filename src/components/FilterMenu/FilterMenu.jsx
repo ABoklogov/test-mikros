@@ -13,15 +13,14 @@ import options from '../../options.js';
 const FilterMenu = () => {
   const textShowBtn = options.buttons.show.text;
   const textResetBtn = options.buttons.reset.text;
-  const getDataFiltered = useSelector(productsSelectors.getDataFiltered);
   const dispatch = useDispatch();
 
   const showFilteredData = () => {
-    // if (!getDataFiltered) {
     dispatch(productsAction.showFilteredData(true));
-    //   return;
-    // }
-    // dispatch(productsAction.showFilteredData(false));
+  };
+
+  const resetFilteredData = () => {
+    dispatch(productsAction.showFilteredData(false));
   };
 
   return (
@@ -56,7 +55,11 @@ const FilterMenu = () => {
           text={textShowBtn}
           className={s.buttonShow}
         />
-        <Button text={textResetBtn} className={s.buttonReset} />
+        <Button
+          onClick={resetFilteredData}
+          text={textResetBtn}
+          className={s.buttonReset}
+        />
       </div>
     </div>
   );

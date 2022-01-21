@@ -1,3 +1,6 @@
+// import { useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { productsAction, productsSelectors } from '../../redux/products';
 import s from './ProductItem.module.css';
 import product from '../../images/product.png';
 import love from '../../images/icons/love.svg';
@@ -22,6 +25,12 @@ const ProductItem = ({ source }) => {
   const endPointString = `${endPoint.days % 365}:${endPoint.hours % 24}:${
     endPoint.minutes % 60
   }`;
+  // const dispatch = useDispatch();
+  // const dataFiltered = useSelector(productsSelectors.getDataFiltered);
+
+  // useEffect(() => {
+  //   if (dataFiltered) dispatch(productsAction.showFilteredData(false));
+  // }, [dispatch]);
 
   return (
     <div className={s.box}>
