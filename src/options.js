@@ -1,4 +1,9 @@
 const options = {
+  filtres: {
+    price: 'price',
+    dimensions: 'dimensions',
+    colors: 'colors',
+  },
   titles: [
     'Цена',
     'Размер',

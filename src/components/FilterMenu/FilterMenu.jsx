@@ -11,13 +11,15 @@ import Button from '../Button';
 import options from '../../options.js';
 import changingFilterData from '../../lib/changingFilterData';
 
+const { price, dimensions, colors } = options.filtres;
+
 const FilterMenu = () => {
   const textShowBtn = options.buttons.show.text;
   // const textResetBtn = options.buttons.reset.text;
   const dispatch = useDispatch();
   const priceRange = useSelector(productsSelectors.getPriceRange);
 
-  const changingFilterPrice = changingFilterData(priceRange);
+  const changingFilterPrice = changingFilterData(price, priceRange);
 
   const showFilteredData = () => {
     if (!changingFilterPrice) dispatch(productsAction.showFilteredData(true));

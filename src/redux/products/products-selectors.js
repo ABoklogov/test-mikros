@@ -9,4 +9,6 @@ export const getDisplayBy = state => state.products.displayBy;
 
 export const getPriceRange = state => state.products.priceRange;
 
+export const getDimensions = state => state.products.dimensions;
+
 export const getDataFiltered = state => state.products.dataFiltered;

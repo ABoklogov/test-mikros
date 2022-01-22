@@ -14,6 +14,7 @@ import {
   fixPriceRange,
   showFilteredData,
   showProductsFilteredPrice,
+  fixDimensions,
 } from './products-action';
 // import options from '../../options';
 
@@ -60,6 +61,10 @@ const priceRange = createReducer([], {
   [fixPriceRange]: (state, { payload }) => (state = payload),
 });
 
+const dimensions = createReducer([], {
+  [fixDimensions]: (state, { payload }) => (state = payload),
+});
+
 const dataFiltered = createReducer(false, {
   [showFilteredData]: (state, { payload }) => (state = payload),
 });
@@ -73,6 +78,7 @@ const productsReducer = combineReducers({
   sortOrder,
   displayBy,
   priceRange,
+  dimensions,
   dataFiltered,
   // filterCategories,
 });

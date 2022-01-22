@@ -1,5 +1,7 @@
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { menuSelectors, menuAction } from '../../redux/menu';
+import { productsSelectors, productsAction } from '../../redux/products';
 import s from './FilterDimensions.module.css';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -10,13 +12,29 @@ const FilterDimensions = () => {
   const getIsOpenMenuDimensions = useSelector(
     menuSelectors.getIsOpenMenuDimensions,
   );
+  const dataFiltered = useSelector(productsSelectors.getDataFiltered);
   const dispatch = useDispatch();
+  const [values, setValues] = useState([]);
+
+  useEffect(() => {
+    if (!dataFiltered) dispatch(productsAction.fixDimensions(values));
+  }, [dataFiltered, dispatch, values]);
 
   const showMenu = () => {
     getIsOpenMenuDimensions
       ? dispatch(menuAction.closeMenuDimensions())
       : dispatch(menuAction.openMenuDimensions());
   };
+
+  const handleChange = e => {
+    const label = e.target.labels[0].innerText;
+    if (values.includes(label)) {
+      setValues(oldValues => oldValues.filter(el => el !== label));
+      return;
+    }
+    setValues([...values, label]);
+  };
+  // console.log(values);
 
   return (
     <div className={s.box}>
@@ -36,6 +54,7 @@ const FilterDimensions = () => {
           {options.dimensions?.map(el => (
             <div className={s.box} key={el}>
               <FormControlLabel
+                onChange={handleChange}
                 control={
                   <Checkbox
                     sx={{

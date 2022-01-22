@@ -2,13 +2,14 @@ import s from './MainFilters.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { productsSelectors, productsAction } from '../../redux/products';
 import Label from '../Label';
-// import options from '../../options';
+import options from '../../options';
 import { useEffect, useState } from 'react';
 import changingFilterData from '../../lib/changingFilterData';
 // const startData = {
 //   minPrice: options.minPrice,
 //   maxPrice: options.maxPrice,
 // };
+const { price, dimensions, colors } = options.filtres;
 
 const MainFilters = () => {
   const dispatch = useDispatch();
@@ -17,23 +18,21 @@ const MainFilters = () => {
   // const startPriceRange =
   //   priceRange[0] === startData.minPrice &&
   //   priceRange[1] === startData.maxPrice;
-
   const [labelPrice, setLabelPrice] = useState(false);
 
-  const changingFilterPrice = changingFilterData(priceRange);
+  const labelPriceRange = `от ${priceRange[0]} до ${priceRange[1]} руб.`;
+  const changingFilterPrice = changingFilterData(price, priceRange);
 
   useEffect(() => {
     if (!changingFilterPrice) setLabelPrice(true);
   }, [changingFilterPrice]);
-
-  const labelPriceRange = `от ${priceRange[0]} до ${priceRange[1]} руб.`;
 
   const resetFilteredData = () => {
     dispatch(productsAction.showFilteredData(false));
   };
 
   const closeLabel = id => {
-    if (id === 'price') setLabelPrice(false);
+    if (id === price) setLabelPrice(false);
     if (labelPrice) resetFilteredData();
   };
 
@@ -45,15 +44,13 @@ const MainFilters = () => {
         {dataFiltered && (
           <ul className={s.listLabels}>
             {!changingFilterPrice && labelPrice && (
-              <>
-                <li className={s.indent}>
-                  <Label
-                    closeLabel={closeLabel}
-                    text={labelPriceRange}
-                    id="price"
-                  />
-                </li>
-              </>
+              <li className={s.indent}>
+                <Label
+                  closeLabel={closeLabel}
+                  text={labelPriceRange}
+                  id={price}
+                />
+              </li>
             )}
           </ul>
         )}
