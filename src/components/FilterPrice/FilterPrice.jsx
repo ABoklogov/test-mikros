@@ -26,7 +26,7 @@ const FilterPrice = () => {
         productsAction.fixPriceRange([options.minPrice, options.maxPrice]),
       );
     }
-  }, [dataFiltered]);
+  }, [dataFiltered, dispatch]);
 
   const showMenu = () => {
     getIsOpenMenuPrice

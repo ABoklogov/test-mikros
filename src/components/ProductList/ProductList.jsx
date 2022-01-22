@@ -18,8 +18,7 @@ const ProductList = () => {
   const priceRange = useSelector(productsSelectors.getPriceRange);
 
   useEffect(() => {
-    dispatch(productsOperations.fetchProducts());
-    // console.log(dataFiltered);
+    if (!dataFiltered) dispatch(productsOperations.fetchProducts());
 
     if (sortOrder === 'алфавиту')
       dispatch(productsAction.alphabeticalSorting());
@@ -34,13 +33,9 @@ const ProductList = () => {
 
     if (displayBy === '60') dispatch(productsAction.displayBy60());
 
-    if (dataFiltered) {
+    if (dataFiltered)
       dispatch(productsAction.showProductsFilteredPrice(priceRange));
-      // dispatch(productsAction.showFilteredData(false));
-    }
   }, [dataFiltered, dispatch, displayBy, priceRange, sortOrder]);
-
-  // if (dataFiltered) dispatch(productsAction.showFilteredData(false));
 
   return (
     <ul className={s.box}>

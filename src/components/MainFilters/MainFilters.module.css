@@ -24,6 +24,8 @@
   color: #5c5c5c;
   cursor: pointer;
   padding: 0;
+  margin-right: 12px;
+  height: 40px;
 }
 
 .listLabels {
@@ -31,8 +33,10 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  /* margin-top: 32px; */
 }
 
 .indent {
   margin-right: 12px;
+  height: 40px;
 }

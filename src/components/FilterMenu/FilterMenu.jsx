@@ -9,19 +9,23 @@ import FilterProductMicros from '../FilterProductMicros';
 import FilterNoText from '../FilterNoText';
 import Button from '../Button';
 import options from '../../options.js';
+import changingFilterData from '../../lib/changingFilterData';
 
 const FilterMenu = () => {
   const textShowBtn = options.buttons.show.text;
-  const textResetBtn = options.buttons.reset.text;
+  // const textResetBtn = options.buttons.reset.text;
   const dispatch = useDispatch();
+  const priceRange = useSelector(productsSelectors.getPriceRange);
+
+  const changingFilterPrice = changingFilterData(priceRange);
 
   const showFilteredData = () => {
-    dispatch(productsAction.showFilteredData(true));
+    if (!changingFilterPrice) dispatch(productsAction.showFilteredData(true));
   };
 
-  const resetFilteredData = () => {
-    dispatch(productsAction.showFilteredData(false));
-  };
+  // const resetFilteredData = () => {
+  //   dispatch(productsAction.showFilteredData(false));
+  // };
 
   return (
     <div className={s.filterMenuContainer}>
@@ -49,18 +53,18 @@ const FilterMenu = () => {
         <FilterNoText />
       </div>
 
-      <div className={s.boxButtons}>
-        <Button
-          onClick={showFilteredData}
-          text={textShowBtn}
-          className={s.buttonShow}
-        />
-        <Button
+      {/* <div className={s.boxButtons}> */}
+      <Button
+        onClick={showFilteredData}
+        text={textShowBtn}
+        className={s.buttonShow}
+      />
+      {/* <Button
           onClick={resetFilteredData}
           text={textResetBtn}
           className={s.buttonReset}
-        />
-      </div>
+        /> */}
+      {/* </div> */}
     </div>
   );
 };
