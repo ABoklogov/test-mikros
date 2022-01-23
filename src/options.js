@@ -15,7 +15,7 @@ const options = {
   minPrice: 200,
   maxPrice: 10000,
   dimensions: ['11', '12', '35', '36', '47', '54'],
-  measure: 'см',
+  measure: '"',
   colors: [
     {
       color: '#FF464B',

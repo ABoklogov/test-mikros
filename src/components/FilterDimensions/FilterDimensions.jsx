@@ -38,7 +38,7 @@ const FilterDimensions = ({ menuDimensions, setMenuDimensions }) => {
           getIsOpenMenu={getIsOpenMenuDimensions}
         />
         {getIsOpenMenuDimensions && (
-          <span className={s.titlePrefix}>, см:</span>
+          <span className={s.titlePrefix}>, &quot;:</span>
         )}
       </div>
 
