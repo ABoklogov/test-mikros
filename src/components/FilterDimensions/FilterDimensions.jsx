@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { menuSelectors, menuAction } from '../../redux/menu';
 import { productsSelectors, productsAction } from '../../redux/products';
@@ -8,17 +8,11 @@ import Checkbox from '@mui/material/Checkbox';
 import FilterTitle from '../FilterTitle';
 import options from '../../options';
 
-const FilterDimensions = () => {
+const FilterDimensions = ({ menuDimensions, setMenuDimensions }) => {
   const getIsOpenMenuDimensions = useSelector(
     menuSelectors.getIsOpenMenuDimensions,
   );
-  const dataFiltered = useSelector(productsSelectors.getDataFiltered);
   const dispatch = useDispatch();
-  const [values, setValues] = useState([]);
-
-  useEffect(() => {
-    if (!dataFiltered) dispatch(productsAction.fixDimensions(values));
-  }, [dataFiltered, dispatch, values]);
 
   const showMenu = () => {
     getIsOpenMenuDimensions
@@ -28,13 +22,12 @@ const FilterDimensions = () => {
 
   const handleChange = e => {
     const label = e.target.labels[0].innerText;
-    if (values.includes(label)) {
-      setValues(oldValues => oldValues.filter(el => el !== label));
+    if (menuDimensions.includes(label)) {
+      setMenuDimensions(oldValues => oldValues.filter(el => el !== label));
       return;
     }
-    setValues([...values, label]);
+    setMenuDimensions([...menuDimensions, label]);
   };
-  // console.log(values);
 
   return (
     <div className={s.box}>

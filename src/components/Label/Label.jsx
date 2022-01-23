@@ -3,10 +3,13 @@ import s from './Label.module.css';
 // import { productsAction } from '../../redux/products';
 import labelClose from '../../images/icons/labelClose.svg';
 
-const Label = ({ text, closeLabel, id }) => {
+const Label = ({ text, closeLabel, measure = '' }) => {
+  console.log(measure);
   return (
     <div className={s.label}>
-      <span className={s.textLabel}>{text}</span>
+      <span className={s.textLabel}>
+        {text} {measure}
+      </span>
       <img onClick={() => closeLabel(text)} src={labelClose} alt="labelClose" />
     </div>
   );

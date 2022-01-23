@@ -16,9 +16,10 @@ const ProductList = () => {
   const displayBy = useSelector(productsSelectors.getDisplayBy);
   const dataFiltered = useSelector(productsSelectors.getDataFiltered);
   const priceRange = useSelector(productsSelectors.getPriceRange);
+  const dimensions = useSelector(productsSelectors.getDimensions);
 
   useEffect(() => {
-    if (!dataFiltered) dispatch(productsOperations.fetchProducts());
+    if (dataFiltered) dispatch(productsOperations.fetchProducts());
 
     if (sortOrder === 'алфавиту')
       dispatch(productsAction.alphabeticalSorting());
@@ -35,7 +36,10 @@ const ProductList = () => {
 
     if (dataFiltered)
       dispatch(productsAction.showProductsFilteredPrice(priceRange));
-  }, [dataFiltered, dispatch, displayBy, priceRange, sortOrder]);
+
+    if (dataFiltered && dimensions.length !== 0)
+      dispatch(productsAction.showProductsFilteredDimensions(dimensions));
+  }, [dataFiltered, dimensions, dispatch, displayBy, priceRange, sortOrder]);
 
   return (
     <ul className={s.box}>

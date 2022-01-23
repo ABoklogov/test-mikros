@@ -26,4 +26,8 @@ export const showFilteredData = createAction('products/showFilteredData');
 export const showProductsFilteredPrice = createAction(
   'products/showProductsFilteredPrice',
 );
+
+export const showProductsFilteredDimensions = createAction(
+  'products/showProductsFilteredDimensions',
+);
 // export const selectCategories = createAction('products/selectCategories');

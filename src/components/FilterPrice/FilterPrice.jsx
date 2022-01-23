@@ -8,12 +8,11 @@ import FilterTitle from '../FilterTitle';
 import options from '../../options';
 
 const FilterPrice = ({ menuPrice, setMenuPrice }) => {
-  // const getPriceRange = useSelector(productsSelectors.getPriceRange);
+  const dispatch = useDispatch();
   const [value, setValue] = useState([menuPrice[0], menuPrice[1]]);
 
   const getIsOpenMenuPrice = useSelector(menuSelectors.getIsOpenMenuPrice);
   const dataFiltered = useSelector(productsSelectors.getDataFiltered);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!dataFiltered) {

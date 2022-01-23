@@ -14,7 +14,8 @@ const options = {
   ],
   minPrice: 200,
   maxPrice: 10000,
-  dimensions: [17, 24, 32, 40],
+  dimensions: ['11', '12', '35', '36', '47', '54'],
+  measure: 'см',
   colors: [
     {
       color: '#FF464B',

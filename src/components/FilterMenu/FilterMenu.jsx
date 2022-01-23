@@ -1,7 +1,7 @@
 import s from './FilterMenu.module.css';
-import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { productsSelectors, productsAction } from '../../redux/products';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { productsAction } from '../../redux/products';
 import FilterPrice from '../FilterPrice';
 import FilterDimensions from '../FilterDimensions';
 import FilterColors from '../FilterColors';
@@ -10,29 +10,24 @@ import FilterProductMicros from '../FilterProductMicros';
 import FilterNoText from '../FilterNoText';
 import Button from '../Button';
 import options from '../../options.js';
-import changingFilterData from '../../lib/changingFilterData';
-
-const { textPrice, textDimensions, textColors } = options.filtres;
 const textShowBtn = options.buttons.show.text;
 
 const FilterMenu = () => {
+  const dispatch = useDispatch();
   const [menuPrice, setMenuPrice] = useState([
     options.minPrice,
     options.maxPrice,
   ]);
+  const [menuDimensions, setMenuDimensions] = useState([]);
 
-  const dispatch = useDispatch();
-  const priceRange = useSelector(productsSelectors.getPriceRange);
-  const dimensions = useSelector(productsSelectors.getDimensions);
-
-  const changingFilterPrice = changingFilterData(textPrice, priceRange);
+  console.log(menuPrice);
+  console.log(menuDimensions);
 
   const showFilteredData = () => {
     dispatch(productsAction.showFilteredData(true));
-    dispatch(productsAction.fixPriceRange(menuPrice));
 
-    if (dimensions.length !== 0)
-      dispatch(productsAction.showFilteredData(true));
+    dispatch(productsAction.fixPriceRange(menuPrice));
+    dispatch(productsAction.fixDimensions(menuDimensions));
   };
 
   return (
@@ -42,7 +37,10 @@ const FilterMenu = () => {
       </div>
 
       <div className={s.filterSubBox}>
-        <FilterDimensions />
+        <FilterDimensions
+          menuDimensions={menuDimensions}
+          setMenuDimensions={setMenuDimensions}
+        />
       </div>
 
       <div className={s.filterSubBox}>
@@ -61,18 +59,11 @@ const FilterMenu = () => {
         <FilterNoText />
       </div>
 
-      {/* <div className={s.boxButtons}> */}
       <Button
         onClick={showFilteredData}
         text={textShowBtn}
         className={s.buttonShow}
       />
-      {/* <Button
-          onClick={resetFilteredData}
-          text={textResetBtn}
-          className={s.buttonReset}
-        /> */}
-      {/* </div> */}
     </div>
   );
 };

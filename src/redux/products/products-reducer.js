@@ -14,6 +14,7 @@ import {
   fixPriceRange,
   showFilteredData,
   showProductsFilteredPrice,
+  showProductsFilteredDimensions,
   fixDimensions,
   deleteDimensions,
 } from './products-action';
@@ -47,6 +48,11 @@ const products = createReducer([], {
       product =>
         payload[0] <= product._source.PRICE.BASE &&
         product._source.PRICE.BASE <= payload[1],
+    ),
+
+  [showProductsFilteredDimensions]: (state, { payload }) =>
+    state.filter(product =>
+      payload.includes(product._source.PROPERTYS.RAZMER?.match(/\d+/)[0]),
     ),
 });
 

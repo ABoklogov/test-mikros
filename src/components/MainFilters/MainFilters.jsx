@@ -5,10 +5,7 @@ import Label from '../Label';
 import options from '../../options';
 import { useEffect, useState } from 'react';
 import changingFilterData from '../../lib/changingFilterData';
-// const startData = {
-//   minPrice: options.minPrice,
-//   maxPrice: options.maxPrice,
-// };
+
 const { textPrice, textDimensions, textColors } = options.filtres;
 
 const MainFilters = () => {
@@ -18,34 +15,31 @@ const MainFilters = () => {
   const dataFiltered = useSelector(productsSelectors.getDataFiltered);
 
   const [labelPrice, setLabelPrice] = useState(false);
-  const [labelDimensions, setLabelDimensions] = useState(false);
 
   const labelPriceRange = `от ${priceRange[0]} до ${priceRange[1]} руб.`;
   const changingFilterPrice = changingFilterData(textPrice, priceRange);
 
   useEffect(() => {
-    if (!dataFiltered) setLabelPrice(true);
-
-    if (dimensions.length !== 0) setLabelDimensions(true);
-  }, [changingFilterPrice, dataFiltered, dimensions.length]);
+    if (dataFiltered) setLabelPrice(true);
+  }, [changingFilterPrice, dataFiltered]);
 
   const resetFilteredData = () => {
     dispatch(productsAction.showFilteredData(false));
-    // dispatch(productsAction.fixDimensions([]));
+    dispatch(productsAction.fixDimensions([]));
   };
 
   const closeLabel = text => {
-    if (text === labelPriceRange) setLabelPrice(false);
-    // if (text === textDimensions) setLabelDimensions(false);
+    if (text === labelPriceRange) {
+      setLabelPrice(false);
+      dispatch(
+        productsAction.fixPriceRange([options.minPrice, options.maxPrice]),
+      );
+    }
     dimensions.forEach(el => {
       if (el === text) {
-        console.log(el);
         dispatch(productsAction.deleteDimensions(el));
       }
-      // dispatch(productsAction.fixDimensions([]));
     });
-    if (labelPrice) resetFilteredData();
-    // if (labelDimensions) resetFilteredData();
   };
 
   return (
@@ -53,33 +47,27 @@ const MainFilters = () => {
       <h2 className={s.title}>Фильтры:</h2>
 
       <div className={s.subBox}>
-        {dataFiltered && (
-          <ul className={s.listLabels}>
-            {!changingFilterPrice && labelPrice && (
-              <li className={s.indent}>
+        <ul className={s.listLabels}>
+          {!changingFilterPrice && labelPrice && (
+            <li className={s.indent}>
+              <Label closeLabel={closeLabel} text={labelPriceRange} />
+            </li>
+          )}
+
+          <>
+            {dimensions.map(el => (
+              <li className={s.indent} key={el}>
                 <Label
                   closeLabel={closeLabel}
-                  text={labelPriceRange}
-                  id={textPrice}
+                  text={el}
+                  id={textDimensions}
+                  measure={options.measure}
                 />
               </li>
-            )}
-            {/* {dimensions.length !== 0 && ( */}
-            <>
-              {dimensions.map(el => (
-                <li className={s.indent} key={el}>
-                  <Label
-                    closeLabel={closeLabel}
-                    text={el}
-                    id={textDimensions}
-                  />
-                </li>
-              ))}
-              ,
-            </>
-            {/* )} */}
-          </ul>
-        )}
+            ))}
+          </>
+        </ul>
+
         <button onClick={resetFilteredData} className={s.btnResetAll}>
           Сбросить все
         </button>
