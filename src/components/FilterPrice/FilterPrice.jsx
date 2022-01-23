@@ -66,6 +66,16 @@ const FilterPrice = ({ menuPrice, setMenuPrice }) => {
             valueLabelDisplay="auto"
             min={options.minPrice}
             max={options.maxPrice}
+            sx={{
+              color: '#0097FF',
+              height: 2,
+              '& .MuiSlider-thumb': {
+                height: 25,
+                width: 25,
+                backgroundColor: '#fff',
+                border: '2px solid #0097FF',
+              },
+            }}
           />
         </div>
       )}

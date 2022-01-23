@@ -9,13 +9,13 @@ import FilterTitle from '../FilterTitle';
 import options from '../../options';
 
 const FilterDimensions = ({ menuDimensions, setMenuDimensions }) => {
-  const getIsOpenMenuDimensions = useSelector(
+  const dispatch = useDispatch();
+  const isOpenMenuDimensions = useSelector(
     menuSelectors.getIsOpenMenuDimensions,
   );
-  const dispatch = useDispatch();
 
   const showMenu = () => {
-    getIsOpenMenuDimensions
+    isOpenMenuDimensions
       ? dispatch(menuAction.closeMenuDimensions())
       : dispatch(menuAction.openMenuDimensions());
   };
@@ -35,14 +35,14 @@ const FilterDimensions = ({ menuDimensions, setMenuDimensions }) => {
         <FilterTitle
           title={options.titles[1]}
           showMenu={showMenu}
-          getIsOpenMenu={getIsOpenMenuDimensions}
+          getIsOpenMenu={isOpenMenuDimensions}
         />
-        {getIsOpenMenuDimensions && (
+        {isOpenMenuDimensions && (
           <span className={s.titlePrefix}>, &quot;:</span>
         )}
       </div>
 
-      {getIsOpenMenuDimensions && (
+      {isOpenMenuDimensions && (
         <div className={s.subBox}>
           {options.dimensions?.map(el => (
             <div className={s.box} key={el}>
@@ -52,6 +52,7 @@ const FilterDimensions = ({ menuDimensions, setMenuDimensions }) => {
                   <Checkbox
                     sx={{
                       color: '#DDDDDD',
+                      borderRadius: 5,
                       '&.Mui-checked': {
                         color: '#0097FF',
                       },
