@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/test-mikros/static/css/main.3be59433.css",
-    "main.js": "/test-mikros/static/js/main.c2bbeb82.js",
+    "main.js": "/test-mikros/static/js/main.f707a649.js",
     "static/media/product.png": "/test-mikros/static/media/product.8ba82f50ccfb395b94e8.png",
     "static/media/logo.svg": "/test-mikros/static/media/logo.7a4a3bed3ec9b27b7f6ea48183299931.svg",
     "static/media/full.svg": "/test-mikros/static/media/full.313e7cae5f51d19552f2aba87c71a856.svg",
@@ -20,10 +20,10 @@
     "static/media/arrowBottom.svg": "/test-mikros/static/media/arrowBottom.e46d98df4a11b056675cf9bd33b54526.svg",
     "static/media/arrowMenuFilter.svg": "/test-mikros/static/media/arrowMenuFilter.1a9e9f5b239386a753c96424bb3255d2.svg",
     "main.3be59433.css.map": "/test-mikros/static/css/main.3be59433.css.map",
-    "main.c2bbeb82.js.map": "/test-mikros/static/js/main.c2bbeb82.js.map"
+    "main.f707a649.js.map": "/test-mikros/static/js/main.f707a649.js.map"
   },
   "entrypoints": [
     "static/css/main.3be59433.css",
-    "static/js/main.c2bbeb82.js"
+    "static/js/main.f707a649.js"
   ]
 }
