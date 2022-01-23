@@ -17,7 +17,9 @@ export const displayBy40 = createAction('products/displayBy40');
 export const displayBy60 = createAction('products/displayBy60');
 
 export const fixPriceRange = createAction('products/fixPriceRange');
+
 export const fixDimensions = createAction('products/fixDimensions');
+export const deleteDimensions = createAction('products/deleteDimensions');
 
 export const showFilteredData = createAction('products/showFilteredData');
 

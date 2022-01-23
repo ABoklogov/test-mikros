@@ -9,31 +9,43 @@ import changingFilterData from '../../lib/changingFilterData';
 //   minPrice: options.minPrice,
 //   maxPrice: options.maxPrice,
 // };
-const { price, dimensions, colors } = options.filtres;
+const { textPrice, textDimensions, textColors } = options.filtres;
 
 const MainFilters = () => {
   const dispatch = useDispatch();
   const priceRange = useSelector(productsSelectors.getPriceRange);
+  const dimensions = useSelector(productsSelectors.getDimensions);
   const dataFiltered = useSelector(productsSelectors.getDataFiltered);
-  // const startPriceRange =
-  //   priceRange[0] === startData.minPrice &&
-  //   priceRange[1] === startData.maxPrice;
+
   const [labelPrice, setLabelPrice] = useState(false);
+  const [labelDimensions, setLabelDimensions] = useState(false);
 
   const labelPriceRange = `от ${priceRange[0]} до ${priceRange[1]} руб.`;
-  const changingFilterPrice = changingFilterData(price, priceRange);
+  const changingFilterPrice = changingFilterData(textPrice, priceRange);
 
   useEffect(() => {
-    if (!changingFilterPrice) setLabelPrice(true);
-  }, [changingFilterPrice]);
+    if (!dataFiltered) setLabelPrice(true);
+
+    if (dimensions.length !== 0) setLabelDimensions(true);
+  }, [changingFilterPrice, dataFiltered, dimensions.length]);
 
   const resetFilteredData = () => {
     dispatch(productsAction.showFilteredData(false));
+    // dispatch(productsAction.fixDimensions([]));
   };
 
-  const closeLabel = id => {
-    if (id === price) setLabelPrice(false);
+  const closeLabel = text => {
+    if (text === labelPriceRange) setLabelPrice(false);
+    // if (text === textDimensions) setLabelDimensions(false);
+    dimensions.forEach(el => {
+      if (el === text) {
+        console.log(el);
+        dispatch(productsAction.deleteDimensions(el));
+      }
+      // dispatch(productsAction.fixDimensions([]));
+    });
     if (labelPrice) resetFilteredData();
+    // if (labelDimensions) resetFilteredData();
   };
 
   return (
@@ -48,10 +60,24 @@ const MainFilters = () => {
                 <Label
                   closeLabel={closeLabel}
                   text={labelPriceRange}
-                  id={price}
+                  id={textPrice}
                 />
               </li>
             )}
+            {/* {dimensions.length !== 0 && ( */}
+            <>
+              {dimensions.map(el => (
+                <li className={s.indent} key={el}>
+                  <Label
+                    closeLabel={closeLabel}
+                    text={el}
+                    id={textDimensions}
+                  />
+                </li>
+              ))}
+              ,
+            </>
+            {/* )} */}
           </ul>
         )}
         <button onClick={resetFilteredData} className={s.btnResetAll}>

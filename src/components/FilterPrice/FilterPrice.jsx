@@ -7,11 +7,9 @@ import Slider from '@mui/material/Slider';
 import FilterTitle from '../FilterTitle';
 import options from '../../options';
 
-const FilterPrice = () => {
+const FilterPrice = ({ menuPrice, setMenuPrice }) => {
   // const getPriceRange = useSelector(productsSelectors.getPriceRange);
-  const [startPrice, setStartPrice] = useState(options.minPrice);
-  const [lastPrice, setLastPrice] = useState(options.maxPrice);
-  const [value, setValue] = useState([startPrice, lastPrice]);
+  const [value, setValue] = useState([menuPrice[0], menuPrice[1]]);
 
   const getIsOpenMenuPrice = useSelector(menuSelectors.getIsOpenMenuPrice);
   const dataFiltered = useSelector(productsSelectors.getDataFiltered);
@@ -19,14 +17,14 @@ const FilterPrice = () => {
 
   useEffect(() => {
     if (!dataFiltered) {
-      setStartPrice(options.minPrice);
-      setLastPrice(options.maxPrice);
+      setMenuPrice([options.minPrice, options.maxPrice]);
+
       setValue([options.minPrice, options.maxPrice]);
       dispatch(
         productsAction.fixPriceRange([options.minPrice, options.maxPrice]),
       );
     }
-  }, [dataFiltered, dispatch]);
+  }, [dataFiltered, dispatch, setMenuPrice]);
 
   const showMenu = () => {
     getIsOpenMenuPrice
@@ -36,10 +34,7 @@ const FilterPrice = () => {
 
   const handleChange = (_, newValue) => {
     setValue(newValue);
-    if (!dataFiltered) dispatch(productsAction.fixPriceRange(value));
-
-    setStartPrice(newValue[0]);
-    setLastPrice(newValue[1]);
+    setMenuPrice([newValue[0], newValue[1]]);
   };
 
   return (
@@ -58,12 +53,12 @@ const FilterPrice = () => {
         <div className={s.subBox}>
           <button className={s.buttons}>
             от
-            <span>{` ${startPrice}`}</span>
+            <span>{` ${menuPrice[0]}`}</span>
           </button>
 
           <button className={s.buttons}>
             до
-            <span>{` ${lastPrice}`}</span>
+            <span>{` ${menuPrice[1]}`}</span>
           </button>
           <Slider
             className={s.slider}

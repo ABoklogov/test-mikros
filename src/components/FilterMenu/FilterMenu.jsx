@@ -1,4 +1,5 @@
 import s from './FilterMenu.module.css';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { productsSelectors, productsAction } from '../../redux/products';
 import FilterPrice from '../FilterPrice';
@@ -11,28 +12,33 @@ import Button from '../Button';
 import options from '../../options.js';
 import changingFilterData from '../../lib/changingFilterData';
 
-const { price, dimensions, colors } = options.filtres;
+const { textPrice, textDimensions, textColors } = options.filtres;
+const textShowBtn = options.buttons.show.text;
 
 const FilterMenu = () => {
-  const textShowBtn = options.buttons.show.text;
-  // const textResetBtn = options.buttons.reset.text;
+  const [menuPrice, setMenuPrice] = useState([
+    options.minPrice,
+    options.maxPrice,
+  ]);
+
   const dispatch = useDispatch();
   const priceRange = useSelector(productsSelectors.getPriceRange);
+  const dimensions = useSelector(productsSelectors.getDimensions);
 
-  const changingFilterPrice = changingFilterData(price, priceRange);
+  const changingFilterPrice = changingFilterData(textPrice, priceRange);
 
   const showFilteredData = () => {
-    if (!changingFilterPrice) dispatch(productsAction.showFilteredData(true));
-  };
+    dispatch(productsAction.showFilteredData(true));
+    dispatch(productsAction.fixPriceRange(menuPrice));
 
-  // const resetFilteredData = () => {
-  //   dispatch(productsAction.showFilteredData(false));
-  // };
+    if (dimensions.length !== 0)
+      dispatch(productsAction.showFilteredData(true));
+  };
 
   return (
     <div className={s.filterMenuContainer}>
       <div className={s.filterSubBox}>
-        <FilterPrice />
+        <FilterPrice menuPrice={menuPrice} setMenuPrice={setMenuPrice} />
       </div>
 
       <div className={s.filterSubBox}>

@@ -11,6 +11,13 @@ const changingFilterData = (nameFilter, dataFilter) => {
       dataFilter[0] === options.minPrice && dataFilter[1] === options.maxPrice;
     return startPriceRange;
   }
+  // if (nameFilter === 'dimensions') {
+  //   options.dimensions.forEach(oldEl => {
+  //     dataFilter.forEach(newEl => {
+  //       newEl === oldEl;
+  //     });
+  //   });
+  // }
 };
 
 export default changingFilterData;

@@ -7,7 +7,7 @@ const Label = ({ text, closeLabel, id }) => {
   return (
     <div className={s.label}>
       <span className={s.textLabel}>{text}</span>
-      <img onClick={() => closeLabel(id)} src={labelClose} alt="labelClose" />
+      <img onClick={() => closeLabel(text)} src={labelClose} alt="labelClose" />
     </div>
   );
 };

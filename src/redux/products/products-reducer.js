@@ -15,6 +15,7 @@ import {
   showFilteredData,
   showProductsFilteredPrice,
   fixDimensions,
+  deleteDimensions,
 } from './products-action';
 // import options from '../../options';
 
@@ -62,7 +63,10 @@ const priceRange = createReducer([], {
 });
 
 const dimensions = createReducer([], {
-  [fixDimensions]: (state, { payload }) => (state = payload),
+  [fixDimensions]: (_, { payload }) => payload,
+
+  [deleteDimensions]: (state, { payload }) =>
+    state.filter(el => el !== payload),
 });
 
 const dataFiltered = createReducer(false, {
