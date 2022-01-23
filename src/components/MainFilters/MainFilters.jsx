@@ -21,7 +21,9 @@ const MainFilters = () => {
 
   useEffect(() => {
     if (dataFiltered) setLabelPrice(true);
-  }, [changingFilterPrice, dataFiltered]);
+
+    if (changingFilterPrice && dimensions.length === 0) resetFilteredData();
+  }, [changingFilterPrice, dataFiltered, dimensions.length]);
 
   const resetFilteredData = () => {
     dispatch(productsAction.showFilteredData(false));

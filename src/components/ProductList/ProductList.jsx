@@ -19,7 +19,7 @@ const ProductList = () => {
   const dimensions = useSelector(productsSelectors.getDimensions);
 
   useEffect(() => {
-    if (dataFiltered) dispatch(productsOperations.fetchProducts());
+    if (!dataFiltered) dispatch(productsOperations.fetchProducts());
 
     if (sortOrder === 'алфавиту')
       dispatch(productsAction.alphabeticalSorting());
