@@ -13,7 +13,7 @@ const MainFilters = () => {
   const priceRange = useSelector(productsSelectors.getPriceRange);
   const dimensions = useSelector(productsSelectors.getDimensions);
   const dataFiltered = useSelector(productsSelectors.getDataFiltered);
-
+  const colors = useSelector(productsSelectors.getColors);
   const [labelPrice, setLabelPrice] = useState(false);
 
   const labelPriceRange = `от ${priceRange[0]} до ${priceRange[1]} руб.`;
@@ -21,13 +21,14 @@ const MainFilters = () => {
 
   useEffect(() => {
     if (dataFiltered) setLabelPrice(true);
-
-    if (changingFilterPrice && dimensions.length === 0) resetFilteredData();
-  }, [changingFilterPrice, dataFiltered, dimensions.length]);
+    if (changingFilterPrice && dimensions.length === 0 && colors.length === 0)
+      resetFilteredData();
+  }, [changingFilterPrice, colors.length, dataFiltered, dimensions.length]);
 
   const resetFilteredData = () => {
     dispatch(productsAction.showFilteredData(false));
     dispatch(productsAction.fixDimensions([]));
+    dispatch(productsAction.fixColors([]));
   };
 
   const closeLabel = text => {
@@ -36,11 +37,15 @@ const MainFilters = () => {
       dispatch(
         productsAction.fixPriceRange([options.minPrice, options.maxPrice]),
       );
+      return;
     }
     dimensions.forEach(el => {
-      if (el === text) {
-        dispatch(productsAction.deleteDimensions(el));
-      }
+      if (el === text) dispatch(productsAction.deleteDimensions(el));
+      return;
+    });
+    colors.forEach(el => {
+      if (el === text) dispatch(productsAction.deleteColors(el));
+      return;
     });
   };
 
@@ -65,6 +70,14 @@ const MainFilters = () => {
                   id={textDimensions}
                   measure={options.measure}
                 />
+              </li>
+            ))}
+          </>
+
+          <>
+            {colors.map(el => (
+              <li className={s.indent} key={el}>
+                <Label closeLabel={closeLabel} text={el} id={textColors} />
               </li>
             ))}
           </>

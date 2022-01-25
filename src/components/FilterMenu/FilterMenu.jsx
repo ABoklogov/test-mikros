@@ -10,7 +10,9 @@ import FilterProductMicros from '../FilterProductMicros';
 import FilterNoText from '../FilterNoText';
 import Button from '../Button';
 import options from '../../options.js';
+import changingFilterData from '../../lib/changingFilterData';
 const textShowBtn = options.buttons.show.text;
+const { textPrice } = options.filtres;
 
 const FilterMenu = () => {
   const dispatch = useDispatch();
@@ -19,15 +21,26 @@ const FilterMenu = () => {
     options.maxPrice,
   ]);
   const [menuDimensions, setMenuDimensions] = useState([]);
+  const [menuColors, setMenuColors] = useState([]);
+  const changingFilterPrice = changingFilterData(textPrice, menuPrice);
 
-  console.log(menuPrice);
-  console.log(menuDimensions);
+  // console.log(menuPrice);
+  // console.log(menuDimensions);
+  // console.log(menuColors);
 
+  const initialState =
+    changingFilterPrice &&
+    menuDimensions.length === 0 &&
+    menuColors.length === 0;
+
+  // console.log(initialState);
   const showFilteredData = () => {
-    dispatch(productsAction.showFilteredData(true));
+    if (!initialState) dispatch(productsAction.showFilteredData(true));
 
-    dispatch(productsAction.fixPriceRange(menuPrice));
-    dispatch(productsAction.fixDimensions(menuDimensions));
+    if (!changingFilterPrice) dispatch(productsAction.fixPriceRange(menuPrice));
+    if (menuDimensions.length !== 0)
+      dispatch(productsAction.fixDimensions(menuDimensions));
+    if (menuColors.length !== 0) dispatch(productsAction.fixColors(menuColors));
   };
 
   return (
@@ -44,7 +57,7 @@ const FilterMenu = () => {
       </div>
 
       <div className={s.filterSubBox}>
-        <FilterColors />
+        <FilterColors menuColors={menuColors} setMenuColors={setMenuColors} />
       </div>
 
       <div className={s.filterSubBox}>

@@ -4,14 +4,23 @@ import s from './FilterColors.module.css';
 import FilterTitle from '../FilterTitle';
 import options from '../../options';
 
-const FilterColors = () => {
-  const getIsOpenMenuColors = useSelector(menuSelectors.getIsOpenMenuColors);
+const FilterColors = ({ menuColors, setMenuColors }) => {
   const dispatch = useDispatch();
+  const getIsOpenMenuColors = useSelector(menuSelectors.getIsOpenMenuColors);
 
   const showMenu = () => {
     getIsOpenMenuColors
       ? dispatch(menuAction.closeMenuColors())
       : dispatch(menuAction.openMenuColors());
+  };
+
+  const handleChange = e => {
+    const label = e.target.labels[0].innerText;
+    if (menuColors.includes(label)) {
+      setMenuColors(oldValues => oldValues.filter(el => el !== label));
+      return;
+    }
+    setMenuColors([...menuColors, label]);
   };
 
   return (
@@ -30,7 +39,7 @@ const FilterColors = () => {
           <ul className={s.box}>
             {options.colors?.map(({ color, label }) => (
               <li className={s.itemColor} key={color}>
-                <label>
+                <label onChange={handleChange}>
                   <input className={s.checkbox} type="checkbox" value={label} />
                   <span
                     className={s.icon}

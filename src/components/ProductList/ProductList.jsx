@@ -17,6 +17,7 @@ const ProductList = () => {
   const dataFiltered = useSelector(productsSelectors.getDataFiltered);
   const priceRange = useSelector(productsSelectors.getPriceRange);
   const dimensions = useSelector(productsSelectors.getDimensions);
+  const colors = useSelector(productsSelectors.getColors);
 
   useEffect(() => {
     if (!dataFiltered) dispatch(productsOperations.fetchProducts());
@@ -39,7 +40,18 @@ const ProductList = () => {
 
     if (dataFiltered && dimensions.length !== 0)
       dispatch(productsAction.showProductsFilteredDimensions(dimensions));
-  }, [dataFiltered, dimensions, dispatch, displayBy, priceRange, sortOrder]);
+
+    if (dataFiltered && colors.length !== 0)
+      dispatch(productsAction.showProductsFilteredColors(colors));
+  }, [
+    colors,
+    dataFiltered,
+    dimensions,
+    dispatch,
+    displayBy,
+    priceRange,
+    sortOrder,
+  ]);
 
   return (
     <ul className={s.box}>

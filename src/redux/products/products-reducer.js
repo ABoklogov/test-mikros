@@ -15,8 +15,11 @@ import {
   showFilteredData,
   showProductsFilteredPrice,
   showProductsFilteredDimensions,
+  showProductsFilteredColors,
   fixDimensions,
   deleteDimensions,
+  fixColors,
+  deleteColors,
 } from './products-action';
 // import options from '../../options';
 
@@ -54,6 +57,16 @@ const products = createReducer([], {
     state.filter(product =>
       payload.includes(product._source.PROPERTYS.RAZMER?.match(/\d+/)[0]),
     ),
+
+  [showProductsFilteredColors]: (state, { payload }) => {
+    function capitalize(s) {
+      return s[0].toUpperCase() + s.slice(1);
+    }
+
+    return state.filter(product =>
+      payload.includes(capitalize(product._source.PROPERTYS.TSVET)),
+    );
+  },
 });
 
 const sortOrder = createReducer('base', {
@@ -75,8 +88,14 @@ const dimensions = createReducer([], {
     state.filter(el => el !== payload),
 });
 
+const colors = createReducer([], {
+  [fixColors]: (_, { payload }) => payload,
+
+  [deleteColors]: (state, { payload }) => state.filter(el => el !== payload),
+});
+
 const dataFiltered = createReducer(false, {
-  [showFilteredData]: (state, { payload }) => (state = payload),
+  [showFilteredData]: (_, { payload }) => payload,
 });
 // const filterCategories = createReducer([], {
 //   [selectCategories]: (state, { payload }) => [...state, payload],
@@ -89,6 +108,7 @@ const productsReducer = combineReducers({
   displayBy,
   priceRange,
   dimensions,
+  colors,
   dataFiltered,
   // filterCategories,
 });

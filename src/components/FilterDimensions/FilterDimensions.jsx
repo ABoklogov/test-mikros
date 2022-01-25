@@ -13,7 +13,6 @@ const FilterDimensions = ({ menuDimensions, setMenuDimensions }) => {
   const isOpenMenuDimensions = useSelector(
     menuSelectors.getIsOpenMenuDimensions,
   );
-  const dataFiltered = useSelector(productsSelectors.getDataFiltered);
 
   const showMenu = () => {
     isOpenMenuDimensions

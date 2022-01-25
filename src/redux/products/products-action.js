@@ -21,6 +21,9 @@ export const fixPriceRange = createAction('products/fixPriceRange');
 export const fixDimensions = createAction('products/fixDimensions');
 export const deleteDimensions = createAction('products/deleteDimensions');
 
+export const fixColors = createAction('products/fixColors');
+export const deleteColors = createAction('products/deleteColors');
+
 export const showFilteredData = createAction('products/showFilteredData');
 
 export const showProductsFilteredPrice = createAction(
@@ -29,5 +32,9 @@ export const showProductsFilteredPrice = createAction(
 
 export const showProductsFilteredDimensions = createAction(
   'products/showProductsFilteredDimensions',
+);
+
+export const showProductsFilteredColors = createAction(
+  'products/showProductsFilteredColors',
 );
 // export const selectCategories = createAction('products/selectCategories');
