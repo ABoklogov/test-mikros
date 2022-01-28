@@ -20,6 +20,7 @@ import {
   deleteDimensions,
   fixColors,
   deleteColors,
+  fetchFilteredProducts,
 } from './products-action';
 // import options from '../../options';
 
@@ -42,9 +43,9 @@ const products = createReducer([], {
   [priceSorting]: state =>
     state.sort((a, b) => a._source.PRICE.BASE - b._source.PRICE.BASE),
 
-  [displayBy20]: state => state.slice(0, 20),
-  [displayBy40]: state => state.slice(0, 40),
-  [displayBy60]: state => state.slice(0, 60),
+  // [displayBy20]: state => state.slice(0, 2),
+  // [displayBy40]: state => state.slice(0, 4),
+  // [displayBy60]: state => state.slice(0, 6),
 
   [showProductsFilteredPrice]: (state, { payload }) =>
     state.filter(
@@ -67,6 +68,14 @@ const products = createReducer([], {
       payload.includes(capitalize(product._source.PROPERTYS.TSVET)),
     );
   },
+});
+
+const filteredProducts = createReducer([], {
+  [fetchFilteredProducts]: (_, { payload }) => payload,
+
+  [displayBy20]: state => state.slice(0, 2),
+  [displayBy40]: state => state.slice(0, 4),
+  [displayBy60]: state => state.slice(0, 6),
 });
 
 const sortOrder = createReducer('base', {
@@ -110,6 +119,7 @@ const productsReducer = combineReducers({
   dimensions,
   colors,
   dataFiltered,
+  filteredProducts,
   // filterCategories,
 });
 

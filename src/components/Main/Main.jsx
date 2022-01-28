@@ -4,6 +4,7 @@ import s from './Main.module.css';
 import MainFilters from '../MainFilters';
 import MainSettings from '../MainSettings';
 import ProductList from '../ProductList';
+import Pagination from '../Pagination';
 
 const Main = () => {
   // const dataFiltered = useSelector(productsSelectors.getDataFiltered);
@@ -23,6 +24,7 @@ const Main = () => {
 
       <div className={s.border}></div>
       <ProductList />
+      <Pagination />
     </div>
   );
 };

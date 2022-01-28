@@ -14,3 +14,5 @@ export const getDimensions = state => state.products.dimensions;
 export const getColors = state => state.products.colors;
 
 export const getDataFiltered = state => state.products.dataFiltered;
+
+export const getFilteredProducts = state => state.products.filteredProducts;

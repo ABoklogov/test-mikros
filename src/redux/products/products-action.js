@@ -37,4 +37,8 @@ export const showProductsFilteredDimensions = createAction(
 export const showProductsFilteredColors = createAction(
   'products/showProductsFilteredColors',
 );
+
+export const fetchFilteredProducts = createAction(
+  'product/fetchFilteredProducts',
+);
 // export const selectCategories = createAction('products/selectCategories');
