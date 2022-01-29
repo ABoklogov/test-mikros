@@ -21,6 +21,7 @@ import {
   fixColors,
   deleteColors,
   fetchFilteredProducts,
+  showProductPage,
 } from './products-action';
 // import options from '../../options';
 
@@ -43,10 +44,6 @@ const products = createReducer([], {
   [priceSorting]: state =>
     state.sort((a, b) => a._source.PRICE.BASE - b._source.PRICE.BASE),
 
-  // [displayBy20]: state => state.slice(0, 2),
-  // [displayBy40]: state => state.slice(0, 4),
-  // [displayBy60]: state => state.slice(0, 6),
-
   [showProductsFilteredPrice]: (state, { payload }) =>
     state.filter(
       product =>
@@ -68,6 +65,8 @@ const products = createReducer([], {
       payload.includes(capitalize(product._source.PROPERTYS.TSVET)),
     );
   },
+
+  [showProductPage]: (state, payload) => state.slice(payload[0], payload[1]),
 });
 
 const filteredProducts = createReducer([], {

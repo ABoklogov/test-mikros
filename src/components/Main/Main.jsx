@@ -24,7 +24,10 @@ const Main = () => {
 
       <div className={s.border}></div>
       <ProductList />
-      <Pagination />
+
+      <div className={s.pagination}>
+        <Pagination />
+      </div>
     </div>
   );
 };

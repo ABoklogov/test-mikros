@@ -41,4 +41,7 @@ export const showProductsFilteredColors = createAction(
 export const fetchFilteredProducts = createAction(
   'product/fetchFilteredProducts',
 );
+
+export const showProductPage = createAction('product/showProductPage');
+
 // export const selectCategories = createAction('products/selectCategories');
