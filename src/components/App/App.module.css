@@ -23,4 +23,16 @@ a {
   display: flex;
   flex-direction: row;
   padding: 0 142px;
+  padding-bottom: 376px;
+}
+
+.strip {
+  height: 50px;
+  width: 100%;
+  background-color: #9cc330;
+}
+
+.footer {
+  padding-right: 142px;
+  padding-left: 142px;
 }

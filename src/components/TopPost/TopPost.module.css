@@ -1,11 +1,7 @@
 .box {
-  /* height: 50px; */
-  /* width: 100%; */
   display: flex;
   justify-content: space-between;
   padding: 0 142px;
-  /* padding-left: auto;
-  padding-right: auto; */
   padding-top: 8px;
   padding-bottom: 7px;
   background-color: #9cc330;

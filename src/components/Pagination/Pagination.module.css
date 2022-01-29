@@ -41,6 +41,8 @@
 
 .arrow {
   cursor: pointer;
+  width: 13px;
+  height: 13px;
   margin: 0;
 }
 
@@ -50,5 +52,4 @@
 
 .backArrow {
   transform: rotate(180deg);
-  color: '#A8A8A8';
 }

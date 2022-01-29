@@ -2,19 +2,16 @@ import { useState, useEffect } from 'react';
 import s from './Pagination.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { productsSelectors, productsAction } from '../../redux/products';
-import arrowPagination from '../../images/icons/arrowPagination.svg';
 
 const Pagination = () => {
   const dispatch = useDispatch();
   const products = useSelector(productsSelectors.getListProduct);
   const displayBy = useSelector(productsSelectors.getDisplayBy);
-  // const productPerPage = Number(displayBy);
+  const productPerPage = Number(displayBy);
+  const pages = Math.ceil(products.length / productPerPage);
 
-  // const pages = Math.ceil(products.length / productPerPage);
-  const pages = Math.ceil(products.length / 2);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const productPerPage = 2;
   const lastProductsIndex = currentPage * productPerPage;
   const firstProductsIndex = lastProductsIndex - productPerPage;
   const currentProducts = products.slice(firstProductsIndex, lastProductsIndex);
@@ -24,10 +21,12 @@ const Pagination = () => {
   }, [currentProducts, dispatch]);
 
   const pageBack = () => {
+    if (currentPage <= 1) return;
     setCurrentPage(oldPage => oldPage - 1);
   };
 
   const pageForward = () => {
+    if (currentPage >= pages) return;
     setCurrentPage(oldPage => oldPage + 1);
   };
 
@@ -54,19 +53,43 @@ const Pagination = () => {
         />
         <span className={`${s.text} ${s.pageText}`}>из {pages}</span>
 
-        <img
-          onClick={pageBack}
+        <svg
           className={`${s.backArrow} ${s.arrow}`}
-          src={arrowPagination}
-          alt="back-arrow"
-          style={currentPage === 1 && { color: '#A8A8A8' }}
-        />
-        <img
+          onClick={pageBack}
+          viewBox="0 0 13 13"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4.33331 2.16679L8.66665 6.50012L4.33331 10.8335"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={
+              currentPage === 1 ? { stroke: '#A8A8A8' } : { stroke: '#0097FF' }
+            }
+          />
+        </svg>
+
+        <svg
           onClick={pageForward}
           className={`${s.forwardArrow} ${s.arrow}`}
-          src={arrowPagination}
-          alt="forward-arrow"
-        />
+          viewBox="0 0 13 13"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4.33331 2.16679L8.66665 6.50012L4.33331 10.8335"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={
+              currentPage === pages
+                ? { stroke: '#A8A8A8' }
+                : { stroke: '#0097FF' }
+            }
+          />
+        </svg>
       </div>
     </div>
   );
