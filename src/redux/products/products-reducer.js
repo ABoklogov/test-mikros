@@ -22,6 +22,7 @@ import {
   deleteColors,
   fetchFilteredProducts,
   showProductPage,
+  resetFilters,
 } from './products-action';
 // import options from '../../options';
 
@@ -105,6 +106,10 @@ const colors = createReducer([], {
 const dataFiltered = createReducer(false, {
   [showFilteredData]: (_, { payload }) => payload,
 });
+
+const filterReset = createReducer(false, {
+  [resetFilters]: (_, { payload }) => payload,
+});
 // const filterCategories = createReducer([], {
 //   [selectCategories]: (state, { payload }) => [...state, payload],
 // });
@@ -119,6 +124,7 @@ const productsReducer = combineReducers({
   colors,
   dataFiltered,
   filteredProducts,
+  filterReset,
   // filterCategories,
 });
 

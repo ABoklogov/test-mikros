@@ -15,6 +15,7 @@ const MainFilters = () => {
   const dataFiltered = useSelector(productsSelectors.getDataFiltered);
   const colors = useSelector(productsSelectors.getColors);
   const [labelPrice, setLabelPrice] = useState(false);
+  // const filterReset = useSelector(productsSelectors.getFilterReset);
 
   const labelPriceRange = `от ${priceRange[0]} до ${priceRange[1]} руб.`;
   const changingFilterPrice = changingFilterData(textPrice, priceRange);
@@ -29,6 +30,7 @@ const MainFilters = () => {
     dispatch(productsAction.showFilteredData(false));
     dispatch(productsAction.fixDimensions([]));
     dispatch(productsAction.fixColors([]));
+    // dispatch(productsAction.resetFilters(false));
   };
 
   const closeLabel = text => {

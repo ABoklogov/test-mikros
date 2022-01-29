@@ -1,11 +1,15 @@
+import { useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { menuSelectors, menuAction } from '../../redux/menu';
+import { productsSelectors } from '../../redux/products';
 import s from './FilterColors.module.css';
 import FilterTitle from '../FilterTitle';
 import options from '../../options';
 
 const FilterColors = ({ menuColors, setMenuColors }) => {
   const dispatch = useDispatch();
+  const dataFiltered = useSelector(productsSelectors.getDataFiltered);
+
   const getIsOpenMenuColors = useSelector(menuSelectors.getIsOpenMenuColors);
 
   const showMenu = () => {
@@ -23,6 +27,8 @@ const FilterColors = ({ menuColors, setMenuColors }) => {
     setMenuColors([...menuColors, label]);
   };
 
+  const showChecked = label => (menuColors.includes(label) ? 'checked' : '');
+
   return (
     <div className={s.box}>
       <div className={s.title}>
@@ -39,8 +45,14 @@ const FilterColors = ({ menuColors, setMenuColors }) => {
           <ul className={s.box}>
             {options.colors?.map(({ color, label }) => (
               <li className={s.itemColor} key={color}>
-                <label onChange={handleChange}>
-                  <input className={s.checkbox} type="checkbox" value={label} />
+                <label>
+                  <input
+                    onChange={handleChange}
+                    className={s.checkbox}
+                    type="checkbox"
+                    value={label}
+                    checked={menuColors.length !== 0 && showChecked(label)}
+                  />
                   <span
                     className={s.icon}
                     style={

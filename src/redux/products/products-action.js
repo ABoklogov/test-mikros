@@ -44,4 +44,5 @@ export const fetchFilteredProducts = createAction(
 
 export const showProductPage = createAction('product/showProductPage');
 
+export const resetFilters = createAction('product/resetFilters');
 // export const selectCategories = createAction('products/selectCategories');

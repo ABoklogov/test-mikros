@@ -29,6 +29,8 @@ const FilterDimensions = ({ menuDimensions, setMenuDimensions }) => {
     setMenuDimensions([...menuDimensions, label]);
   };
 
+  const showChecked = label => (menuDimensions.includes(label) ? true : false);
+
   return (
     <div className={s.box}>
       <div className={s.title}>
@@ -50,6 +52,7 @@ const FilterDimensions = ({ menuDimensions, setMenuDimensions }) => {
                 onChange={handleChange}
                 control={
                   <Checkbox
+                    checked={showChecked(el)}
                     sx={{
                       color: '#DDDDDD',
                       borderRadius: 5,
