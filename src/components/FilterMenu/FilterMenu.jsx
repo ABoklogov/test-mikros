@@ -1,7 +1,7 @@
 import s from './FilterMenu.module.css';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { productsAction, productsSelectors } from '../../redux/products';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { productsAction } from '../../redux/products';
 import FilterPrice from '../FilterPrice';
 import FilterDimensions from '../FilterDimensions';
 import FilterColors from '../FilterColors';
@@ -16,8 +16,6 @@ const { textPrice } = options.filtres;
 
 const FilterMenu = () => {
   const dispatch = useDispatch();
-  // const filterReset = useSelector(productsSelectors.getFilterReset);
-
   const [menuPrice, setMenuPrice] = useState([
     options.minPrice,
     options.maxPrice,
@@ -26,13 +24,9 @@ const FilterMenu = () => {
   const [menuColors, setMenuColors] = useState([]);
   const changingFilterPrice = changingFilterData(textPrice, menuPrice);
 
-  console.log(menuPrice);
-  console.log(menuDimensions);
-  console.log(menuColors);
-
-  // useEffect(() => {
-  //   if (!filterReset) setMenuColors([]);
-  // }, [filterReset]);
+  // console.log(menuPrice);
+  // console.log(menuDimensions);
+  // console.log(menuColors);
 
   const initialState =
     changingFilterPrice &&

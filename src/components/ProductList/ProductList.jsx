@@ -19,6 +19,7 @@ const ProductList = () => {
   const colors = useSelector(productsSelectors.getColors);
   const filteredProducts = useSelector(productsSelectors.getFilteredProducts);
 
+  //загружаем полный массив товаров и цильтруем по алфавиту/цене:
   useEffect(() => {
     if (!dataFiltered) dispatch(productsOperations.fetchProducts());
 

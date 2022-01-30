@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { menuSelectors, menuAction } from '../../redux/menu';
 import { productsSelectors } from '../../redux/products';
@@ -11,11 +11,12 @@ const FilterColors = ({ menuColors, setMenuColors }) => {
   const dataFiltered = useSelector(productsSelectors.getDataFiltered);
   const getIsOpenMenuColors = useSelector(menuSelectors.getIsOpenMenuColors);
 
-  // const filterReset = useSelector(productsSelectors.getFilterReset);
+  //если фильтры отключены, очищаем массив цветов в локальном стейте:
   useEffect(() => {
     if (!dataFiltered) setMenuColors([]);
   }, [dataFiltered, setMenuColors]);
 
+  //функция для управления меню:
   const showMenu = () => {
     getIsOpenMenuColors
       ? dispatch(menuAction.closeMenuColors())
@@ -31,6 +32,7 @@ const FilterColors = ({ menuColors, setMenuColors }) => {
     setMenuColors([...menuColors, label]);
   };
 
+  //функция для управления атрибуда "checked":
   const showChecked = label => (menuColors.includes(label) ? 'checked' : '');
 
   return (

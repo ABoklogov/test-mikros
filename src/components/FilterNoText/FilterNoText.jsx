@@ -8,6 +8,7 @@ const FilterNoText = () => {
   const getIsOpenMenuNoText = useSelector(menuSelectors.getIsOpenMenuNoText);
   const dispatch = useDispatch();
 
+  //функция для управления меню:
   const showMenu = () => {
     getIsOpenMenuNoText
       ? dispatch(menuAction.closeMenuNoText())

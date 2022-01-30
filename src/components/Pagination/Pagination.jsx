@@ -7,15 +7,19 @@ const Pagination = () => {
   const dispatch = useDispatch();
   const products = useSelector(productsSelectors.getListProduct);
   const displayBy = useSelector(productsSelectors.getDisplayBy);
+  // количество элементов на странице:
   const productPerPage = Number(displayBy);
+  // всего страниц:
   const pages = Math.ceil(products.length / productPerPage);
-
+  //текущая страница:
   const [currentPage, setCurrentPage] = useState(1);
-
+  //последний индекс массива:
   const lastProductsIndex = currentPage * productPerPage;
+  //первый индекс массива:
   const firstProductsIndex = lastProductsIndex - productPerPage;
+  //обрезаем массив:
   const currentProducts = products.slice(firstProductsIndex, lastProductsIndex);
-
+  //отправляем в глобальный стейт обрезанный массив:
   useEffect(() => {
     dispatch(productsAction.fetchFilteredProducts(currentProducts));
   }, [currentProducts, dispatch]);

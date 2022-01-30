@@ -10,6 +10,7 @@ const FilterCollection = () => {
   );
   const dispatch = useDispatch();
 
+  //функция для управления меню:
   const showMenu = () => {
     getIsOpenMenuCollection
       ? dispatch(menuAction.closeMenuCollection())

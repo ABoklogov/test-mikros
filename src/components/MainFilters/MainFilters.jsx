@@ -15,11 +15,12 @@ const MainFilters = () => {
   const dataFiltered = useSelector(productsSelectors.getDataFiltered);
   const colors = useSelector(productsSelectors.getColors);
   const [labelPrice, setLabelPrice] = useState(false);
-  // const filterReset = useSelector(productsSelectors.getFilterReset);
 
   const labelPriceRange = `от ${priceRange[0]} до ${priceRange[1]} руб.`;
+  //функция для проверки состояния массива цен (первоначальное или нет):
   const changingFilterPrice = changingFilterData(textPrice, priceRange);
 
+  //проверяем на состояние глобального стейта фильтров. Если в стейте все массивы пустые, возвращаем все фильтры в первоначальное состояние:
   useEffect(() => {
     if (dataFiltered) {
       setLabelPrice(true);
@@ -33,13 +34,14 @@ const MainFilters = () => {
       resetFilteredData();
   }, [changingFilterPrice, colors.length, dataFiltered, dimensions.length]);
 
+  //функция для ресета всех фильтров:
   const resetFilteredData = () => {
     dispatch(productsAction.showFilteredData(false));
     dispatch(productsAction.fixDimensions([]));
     dispatch(productsAction.fixColors([]));
-    // dispatch(productsAction.resetFilters(true));
   };
 
+  //функция для закрытия лейблов фильтров:
   const closeLabel = text => {
     if (text === labelPriceRange) {
       setLabelPrice(false);

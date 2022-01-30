@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { menuSelectors, menuAction } from '../../redux/menu';
 import { productsSelectors } from '../../redux/products';
@@ -15,10 +15,12 @@ const FilterDimensions = ({ menuDimensions, setMenuDimensions }) => {
   );
   const dataFiltered = useSelector(productsSelectors.getDataFiltered);
 
+  //если фильтры отключены, очищаем массив размеров в локальном стейте:
   useEffect(() => {
     if (!dataFiltered) setMenuDimensions([]);
   }, [dataFiltered, setMenuDimensions]);
 
+  //функция для управления меню:
   const showMenu = () => {
     isOpenMenuDimensions
       ? dispatch(menuAction.closeMenuDimensions())
@@ -34,6 +36,7 @@ const FilterDimensions = ({ menuDimensions, setMenuDimensions }) => {
     setMenuDimensions([...menuDimensions, label]);
   };
 
+  //функция для управления атрибуда "checked":
   const showChecked = label => (menuDimensions.includes(label) ? true : false);
 
   return (

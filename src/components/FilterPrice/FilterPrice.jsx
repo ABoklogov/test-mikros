@@ -14,6 +14,7 @@ const FilterPrice = ({ menuPrice, setMenuPrice }) => {
   const getIsOpenMenuPrice = useSelector(menuSelectors.getIsOpenMenuPrice);
   const dataFiltered = useSelector(productsSelectors.getDataFiltered);
 
+  //если фильтры отключены, возвращаем локальный и глобальный стейты в начальное состояние:
   useEffect(() => {
     if (!dataFiltered) {
       setMenuPrice([options.minPrice, options.maxPrice]);
@@ -25,6 +26,7 @@ const FilterPrice = ({ menuPrice, setMenuPrice }) => {
     }
   }, [dataFiltered, dispatch, setMenuPrice]);
 
+  //функция для управления меню:
   const showMenu = () => {
     getIsOpenMenuPrice
       ? dispatch(menuAction.closeMenuPrice())

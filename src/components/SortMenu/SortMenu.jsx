@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { productsSelectors, productsAction } from '../../redux/products';
 import s from './SortMenu.module.css';

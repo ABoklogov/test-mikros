@@ -9,6 +9,7 @@ const MainSettings = () => {
   const textItemsSort = options.sortMenu.menuItem.sort;
   const textMenuDisplay = options.sortMenu.textMenu[1];
   const textItemsDisplay = options.sortMenu.menuItem.display;
+
   return (
     <div className={s.subBox}>
       <SortMenu textMenu={textMenuSort} textItems={textItemsSort} />

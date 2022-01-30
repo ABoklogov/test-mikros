@@ -5,11 +5,12 @@ import FilterTitle from '../FilterTitle';
 import options from '../../options';
 
 const FilterProductMicros = () => {
+  const dispatch = useDispatch();
   const getIsOpenMenuProductMicros = useSelector(
     menuSelectors.getIsOpenMenuProductMicros,
   );
-  const dispatch = useDispatch();
 
+  //функция для управления меню:
   const showMenu = () => {
     getIsOpenMenuProductMicros
       ? dispatch(menuAction.closeMenuProductMicros())
