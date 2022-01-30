@@ -21,8 +21,15 @@ const MainFilters = () => {
   const changingFilterPrice = changingFilterData(textPrice, priceRange);
 
   useEffect(() => {
-    if (dataFiltered) setLabelPrice(true);
-    if (changingFilterPrice && dimensions.length === 0 && colors.length === 0)
+    if (dataFiltered) {
+      setLabelPrice(true);
+    }
+    if (
+      changingFilterPrice &&
+      dimensions.length === 0 &&
+      colors.length === 0 &&
+      dataFiltered
+    )
       resetFilteredData();
   }, [changingFilterPrice, colors.length, dataFiltered, dimensions.length]);
 
@@ -30,7 +37,7 @@ const MainFilters = () => {
     dispatch(productsAction.showFilteredData(false));
     dispatch(productsAction.fixDimensions([]));
     dispatch(productsAction.fixColors([]));
-    // dispatch(productsAction.resetFilters(false));
+    // dispatch(productsAction.resetFilters(true));
   };
 
   const closeLabel = text => {

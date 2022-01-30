@@ -9,8 +9,12 @@ import options from '../../options';
 const FilterColors = ({ menuColors, setMenuColors }) => {
   const dispatch = useDispatch();
   const dataFiltered = useSelector(productsSelectors.getDataFiltered);
-
   const getIsOpenMenuColors = useSelector(menuSelectors.getIsOpenMenuColors);
+
+  // const filterReset = useSelector(productsSelectors.getFilterReset);
+  useEffect(() => {
+    if (!dataFiltered) setMenuColors([]);
+  }, [dataFiltered, setMenuColors]);
 
   const showMenu = () => {
     getIsOpenMenuColors
@@ -51,7 +55,7 @@ const FilterColors = ({ menuColors, setMenuColors }) => {
                     className={s.checkbox}
                     type="checkbox"
                     value={label}
-                    checked={menuColors.length !== 0 && showChecked(label)}
+                    checked={showChecked(label)}
                   />
                   <span
                     className={s.icon}

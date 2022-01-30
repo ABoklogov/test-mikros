@@ -17,4 +17,4 @@ export const getDataFiltered = state => state.products.dataFiltered;
 
 export const getFilteredProducts = state => state.products.filteredProducts;
 
-export const getFilterReset = state => state.products.filterReset;
+// export const getFilterReset = state => state.products.filterReset;

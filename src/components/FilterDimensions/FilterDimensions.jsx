@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { menuSelectors, menuAction } from '../../redux/menu';
-import { productsSelectors, productsAction } from '../../redux/products';
+import { productsSelectors } from '../../redux/products';
 import s from './FilterDimensions.module.css';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -13,6 +13,11 @@ const FilterDimensions = ({ menuDimensions, setMenuDimensions }) => {
   const isOpenMenuDimensions = useSelector(
     menuSelectors.getIsOpenMenuDimensions,
   );
+  const dataFiltered = useSelector(productsSelectors.getDataFiltered);
+
+  useEffect(() => {
+    if (!dataFiltered) setMenuDimensions([]);
+  }, [dataFiltered, setMenuDimensions]);
 
   const showMenu = () => {
     isOpenMenuDimensions

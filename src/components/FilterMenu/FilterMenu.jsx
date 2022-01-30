@@ -26,9 +26,9 @@ const FilterMenu = () => {
   const [menuColors, setMenuColors] = useState([]);
   const changingFilterPrice = changingFilterData(textPrice, menuPrice);
 
-  // console.log(menuPrice);
-  // console.log(menuDimensions);
-  // console.log(menuColors);
+  console.log(menuPrice);
+  console.log(menuDimensions);
+  console.log(menuColors);
 
   // useEffect(() => {
   //   if (!filterReset) setMenuColors([]);
