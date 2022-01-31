@@ -11,6 +11,8 @@ const blue = {
 };
 const CustomButtonRoot = styled('button')`
   ${'' /* font-family: Gotham Pro; */}
+  width: 147px;
+  height: 48px;
   font-weight: bold;
   font-size: 0.875rem;
   background-color: ${blue[500]};
@@ -45,10 +47,14 @@ function CustomButton(props) {
   return <ButtonUnstyled {...props} component={CustomButtonRoot} />;
 }
 
-const ButtonBasket = () => {
+const ButtonBasket = ({ setButtonBasket }) => {
+  const showButton = () => {
+    setButtonBasket(false);
+  };
+
   return (
     <Stack spacing={2} direction="row">
-      <CustomButton>В КОРЗИНУ</CustomButton>
+      <CustomButton onClick={showButton}>В КОРЗИНУ</CustomButton>
     </Stack>
   );
 };

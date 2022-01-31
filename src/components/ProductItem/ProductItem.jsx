@@ -1,4 +1,4 @@
-// import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { productsAction, productsSelectors } from '../../redux/products';
 import s from './ProductItem.module.css';
@@ -25,6 +25,7 @@ const ProductItem = ({ source }) => {
   const endPointString = `${endPoint.days % 365}:${endPoint.hours % 24}:${
     endPoint.minutes % 60
   }`;
+  const [buttonBasket, setButtonBasket] = useState(true);
   // const dispatch = useDispatch();
   // const dataFiltered = useSelector(productsSelectors.getDataFiltered);
 
@@ -71,7 +72,14 @@ const ProductItem = ({ source }) => {
             <span>Ростов-на-дону - {`${rostov}`} упак.</span>
             <span>Воронеж - {`${voronezh}`} упак.</span>
           </div>
-          <ButtonBasket />
+          {buttonBasket ? (
+            <ButtonBasket setButtonBasket={setButtonBasket} />
+          ) : (
+            <CounterButton
+              setButtonBasket={setButtonBasket}
+              price={basePrice}
+            />
+          )}
         </div>
 
         <div
