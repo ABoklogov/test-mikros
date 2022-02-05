@@ -10,10 +10,8 @@ const blue = {
   700: '#0059B2',
 };
 const CustomButtonRoot = styled('button')`
-  ${'' /* font-family: Gotham Pro; */}
   width: 147px;
   height: 48px;
-  font-weight: bold;
   font-size: 0.875rem;
   background-color: ${blue[500]};
   padding: 17px 22px;

@@ -1,7 +1,4 @@
 .btnText {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
-  font-weight: normal;
   font-size: 17px;
   line-height: 120%;
   color: #000c0c;
@@ -9,9 +6,6 @@
   margin-right: 5px;
 }
 .displayBy {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
-  font-weight: normal;
   font-size: 17px;
   line-height: 120%;
   color: #0097ff;

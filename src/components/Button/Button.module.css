@@ -17,10 +17,7 @@
 }
 
 .buttonText {
-  /* font-family: Gotham Pro; */
   text-transform: uppercase;
-  font-style: normal;
-  font-weight: normal;
   font-size: 15px;
   line-height: 0.93;
   text-align: center;

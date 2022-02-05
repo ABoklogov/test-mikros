@@ -16,8 +16,6 @@
 }
 
 .title {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
   font-weight: 900;
   font-size: 23px;
   line-height: 1.09;
@@ -27,9 +25,6 @@
 }
 
 .subTitle {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
-  font-weight: normal;
   font-size: 17px;
   line-height: 120%;
   color: #000c0c;
@@ -59,9 +54,6 @@
 }
 
 .tel {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
-  font-weight: normal;
   font-size: 17px;
   line-height: 120%;
   color: #000c0c;
@@ -70,9 +62,6 @@
 }
 
 .telText {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
-  font-weight: normal;
   font-size: 13px;
   line-height: 130%;
   color: #a8a8a8;
@@ -80,9 +69,6 @@
 }
 
 .telLink {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
-  font-weight: normal;
   font-size: 13px;
   line-height: 130%;
   color: #0097ff;
@@ -94,9 +80,6 @@
 }
 
 .links > p {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
-  font-weight: normal;
   font-size: 17px;
   line-height: 120%;
   text-align: center;

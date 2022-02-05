@@ -22,9 +22,6 @@
 }
 
 .articule {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
-  font-weight: normal;
   font-size: 17px;
   line-height: 120%;
   color: #a8a8a8;
@@ -32,9 +29,6 @@
 }
 
 .articuleNum {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
-  font-weight: normal;
   font-size: 17px;
   line-height: 120%;
   color: #000c0c;
@@ -58,8 +52,6 @@
 }
 
 .label > span {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
   font-weight: 900;
   font-size: 17px;
   line-height: 20px;
@@ -68,9 +60,6 @@
 }
 
 .infoProduct {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
-  font-weight: normal;
   font-size: 17px;
   line-height: 120%;
   color: #000c0c;
@@ -80,8 +69,6 @@
 }
 
 .price {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
   font-weight: 900;
   font-size: 23px;
   line-height: 1.09;
@@ -100,9 +87,6 @@
 }
 
 .oldPrice {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
-  font-weight: normal;
   font-size: 17px;
   line-height: 120%;
   color: #a8a8a8;
@@ -119,8 +103,6 @@
   position: absolute;
   top: 11px;
   left: 10px;
-  /* font-family: Gotham Pro; */
-  font-style: normal;
   font-weight: 900;
   font-size: 20px;
   line-height: 1.25;
@@ -140,9 +122,6 @@
 }
 
 .availabilitySubBox > p {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
-  font-weight: normal;
   font-size: 13px;
   line-height: 130%;
   color: #a8a8a8;
@@ -150,9 +129,6 @@
 }
 
 .availabilitySubBox > span {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
-  font-weight: normal;
   font-size: 13px;
   line-height: 130%;
   color: #000c0c;
@@ -163,9 +139,6 @@
 }
 
 .footerBox > p {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
-  font-weight: normal;
   font-size: 13px;
   line-height: 130%;
   text-align: right;

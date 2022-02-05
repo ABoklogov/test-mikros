@@ -1,6 +1,4 @@
 .title {
-  /* font-family: Gotham Pro; */
-  font-style: normal;
   font-weight: 900;
   font-size: 23px;
   line-height: 25px;
@@ -16,9 +14,6 @@
 .btnResetAll {
   background-color: #fff;
   border: none;
-  /* font-family: Gotham Pro; */
-  font-style: normal;
-  font-weight: normal;
   font-size: 17px;
   line-height: 120%;
   color: #5c5c5c;
