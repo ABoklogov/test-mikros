@@ -1,7 +1,7 @@
 import s from './FilterMenu.module.css';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { productsAction } from '../../redux/products';
+import { useDispatch, useSelector } from 'react-redux';
+import { productsAction, productsSelectors } from '../../redux/products';
 import FilterPrice from '../FilterPrice';
 import FilterDimensions from '../FilterDimensions';
 import FilterColors from '../FilterColors';
@@ -27,7 +27,7 @@ const FilterMenu = () => {
   // console.log(menuPrice);
   // console.log(menuDimensions);
   // console.log(menuColors);
-
+  const dataFiltered = useSelector(productsSelectors.getDataFiltered);
   const initialState =
     changingFilterPrice &&
     menuDimensions.length === 0 &&
@@ -75,6 +75,7 @@ const FilterMenu = () => {
         onClick={showFilteredData}
         text={textShowBtn}
         className={s.buttonShow}
+        disabled={dataFiltered}
       />
     </div>
   );

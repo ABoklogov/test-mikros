@@ -13,8 +13,8 @@
 .btn {
   width: 35px;
   height: 35px;
-  background: #ffffff;
-  border: 2px solid #ffffff;
+  background: var(--white);
+  border: 2px solid var(--white);
   box-sizing: border-box;
   border-radius: 6px;
   padding: 10px;
