@@ -16,10 +16,10 @@
 }
 
 .title {
-  font-weight: 900;
+  font-family: var(--GothamProBlack);
   font-size: 23px;
   line-height: 1.09;
-  color: #0097ff;
+  color: var(--blue);
   margin-top: 0;
   margin-bottom: 2px;
 }
@@ -27,7 +27,7 @@
 .subTitle {
   font-size: 17px;
   line-height: 120%;
-  color: #000c0c;
+  color: var(--black);
   margin-top: 0;
   margin-bottom: 12px;
 }
@@ -56,7 +56,7 @@
 .tel {
   font-size: 17px;
   line-height: 120%;
-  color: #000c0c;
+  color: var(--black);
   margin-top: 0;
   margin-bottom: 3px;
 }
@@ -64,14 +64,14 @@
 .telText {
   font-size: 13px;
   line-height: 130%;
-  color: #a8a8a8;
+  color: var(--grey);
   margin: 0;
 }
 
 .telLink {
   font-size: 13px;
   line-height: 130%;
-  color: #0097ff;
+  color: var(--blue);
 }
 
 .links {
@@ -88,10 +88,10 @@
 }
 
 .fullPrice {
-  color: #0097ff;
+  color: var(--blue);
 }
 .linksText {
-  color: #5c5c5c;
+  color: var(--darkGray);
 }
 
 .links > span {

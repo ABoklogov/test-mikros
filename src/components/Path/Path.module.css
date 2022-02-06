@@ -6,7 +6,7 @@
 .folder {
   font-size: 17px;
   line-height: 120%;
-  color: #0097ff;
+  color: var(--blue);
   margin: 0;
   margin-right: 25px;
 }

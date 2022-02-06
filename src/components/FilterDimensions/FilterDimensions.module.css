@@ -15,16 +15,16 @@
 }
 
 .titlePrefix {
-  font-weight: 900;
+  font-family: var(--GothamProBlack);
   font-size: 23px;
   line-height: 1.09;
-  color: #000c0c;
+  color: var(--black);
 }
 
 .showAll {
   font-size: 17px;
   line-height: 120%;
-  color: #0097ff;
+  color: var(--blue);
   margin: 0;
   margin-top: 10px;
   cursor: pointer;

@@ -6,10 +6,10 @@
 
 .title {
   display: inline-block;
-  font-weight: 900;
+  font-family: var(--GothamProBlack);
   font-size: 40px;
   line-height: 0.95;
-  color: #000c0c;
+  color: var(--black);
   margin-top: 0;
   margin-bottom: 0;
   margin-right: 30px;
@@ -18,6 +18,6 @@
 .numberGoods {
   font-size: 24px;
   line-height: 1.29;
-  color: #a8a8a8;
+  color: var(--grey);
   margin: 0;
 }

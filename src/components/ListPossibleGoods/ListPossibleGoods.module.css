@@ -9,7 +9,7 @@
 }
 
 .buttons {
-  background: rgba(64, 171, 244, 0.1);
+  background-color: var(--blueBackground);
   border-radius: 10px;
   border: none;
   padding-top: 23px;
@@ -21,7 +21,7 @@
   line-height: 0.94;
   text-align: center;
   letter-spacing: 0.1em;
-  color: #5c5c5c;
+  color: var(--darkGray);
 }
 
 .box > li:not(:last-child) {

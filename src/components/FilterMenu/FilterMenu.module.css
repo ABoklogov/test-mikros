@@ -9,8 +9,8 @@
 }
 
 .buttonShow {
-  background-color: #9cc330;
-  border-color: #9cc330;
+  background-color: var(--green);
+  border-color: var(--green);
   width: 130px;
   padding: 17px 22px;
 }

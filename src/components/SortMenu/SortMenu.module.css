@@ -1,14 +1,14 @@
 .btnText {
   font-size: 17px;
   line-height: 120%;
-  color: #000c0c;
+  color: var(--black);
   text-transform: none;
   margin-right: 5px;
 }
 .displayBy {
   font-size: 17px;
   line-height: 120%;
-  color: #0097ff;
+  color: var(--blue);
   margin-right: 5px;
 }
 

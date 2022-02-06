@@ -13,10 +13,10 @@
 }
 
 .titlePrefix {
-  font-weight: 900;
+  font-family: var(--GothamProBlack);
   font-size: 23px;
   line-height: 1.09;
-  color: #000c0c;
+  color: var(--black);
 }
 
 .subTitle > img {
@@ -34,7 +34,7 @@
   font-size: 17px;
   line-height: 120%;
 
-  color: #a8a8a8;
+  color: var(--grey);
   background: #dddddd;
   border: 2px solid #dddddd;
   box-sizing: border-box;
@@ -48,10 +48,10 @@
 .buttons > span {
   font-size: 17px;
   line-height: 120%;
-  color: #000c0c;
+  color: var(--black);
 }
 
 .slider {
   width: 371px;
-  /* border: 2px solid #0097ff; */
+  /* border: 2px solid var(--blue);; */
 }

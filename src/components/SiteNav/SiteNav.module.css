@@ -17,12 +17,12 @@
 .link {
   font-size: 17px;
   line-height: 120%;
-  color: #5c5c5c;
+  color: var(--darkGray);
   margin: 0;
 }
 .textMarker {
   margin-right: 106px;
-  color: #0097ff;
+  color: var(--blue);
 }
 .linkList {
   /* width: 1138px; */
@@ -39,5 +39,5 @@
   display: block;
   width: 287px;
   height: 20px;
-  color: #000c0c;
+  color: var(--black);
 }

@@ -17,16 +17,16 @@
 }
 
 .titlePrefix {
-  font-weight: 900;
+  font-family: var(--GothamProBlack);
   font-size: 23px;
   line-height: 1.09;
-  color: #000c0c;
+  color: var(--black);
 }
 
 .showAll {
   font-size: 17px;
   line-height: 120%;
-  color: #0097ff;
+  color: var(--blue);
   margin: 0;
   cursor: pointer;
 }
@@ -45,7 +45,7 @@
 }
 
 .checkbox:checked + .icon {
-  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #0097ff;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--blue);
   box-sizing: border-box;
 }
 

@@ -1,0 +1,13 @@
+:root {
+  /* fonts: */
+  --GothamProRegular: 'GothamProRegular', sans-serif;
+  --GothamProBlack: 'GothamProBlack', sans-serif;
+
+  /* colors: */
+  --black: #000c0c;
+  --grey: #a8a8a8;
+  --darkGray: #5c5c5c;
+  --blue: #0097ff;
+  --green: #9cc330;
+  --blueBackground: rgba(64, 171, 244, 0.1);
+}

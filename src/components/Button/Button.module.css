@@ -1,8 +1,8 @@
 .button {
   display: flex;
   align-items: center;
-  background-color: #0097ff;
-  border: solid 1px #0097ff;
+  background-color: var(--blue);
+  border: solid 1px var(--blue);
   border-radius: 10px;
   padding-top: 9px;
   padding-bottom: 10px;

@@ -11,7 +11,7 @@
     border-radius: 10px;
     font-size: 17px;
     line-height: 120%;
-    color: #5c5c5c;
+    color: var(--darkGray);
     padding-left: 7px;
   }
 }

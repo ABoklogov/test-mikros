@@ -1,0 +1,21 @@
+/* Regular */
+@font-face {
+  font-family: 'GothamProRegular';
+  src: local('GothamProRegular'),
+    url('../fonts/GothamProRegular.ttf') format('truetype'),
+    url('../fonts/GothamProRegular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/GothamProRegular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'GothamProBlack';
+  src: local('GothamProBlack'),
+    url('../fonts/GothamProBlack.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/GothamProBlack.woff') format('woff'),
+    url('../fonts/GothamProBlack.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}

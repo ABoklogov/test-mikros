@@ -24,14 +24,14 @@
 .articule {
   font-size: 17px;
   line-height: 120%;
-  color: #a8a8a8;
+  color: var(--grey);
   margin: 0;
 }
 
 .articuleNum {
   font-size: 17px;
   line-height: 120%;
-  color: #000c0c;
+  color: var(--black);
 }
 
 .imageBox {
@@ -52,27 +52,27 @@
 }
 
 .label > span {
-  font-weight: 900;
+  font-family: var(--GothamProBlack);
   font-size: 17px;
   line-height: 20px;
   text-align: center;
-  color: #9cc330;
+  color: var(--green);
 }
 
 .infoProduct {
   font-size: 17px;
   line-height: 120%;
-  color: #000c0c;
+  color: var(--black);
   /* height: 40px; */
   margin: 0;
   margin-bottom: 12px;
 }
 
 .price {
-  font-weight: 900;
+  font-family: var(--GothamProBlack);
   font-size: 23px;
   line-height: 1.09;
-  color: #0097ff;
+  color: var(--blue);
   margin: 0;
 }
 
@@ -89,7 +89,7 @@
 .oldPrice {
   font-size: 17px;
   line-height: 120%;
-  color: #a8a8a8;
+  color: var(--grey);
   text-decoration: line-through;
   text-decoration-color: #ff464b;
 }
@@ -103,7 +103,7 @@
   position: absolute;
   top: 11px;
   left: 10px;
-  font-weight: 900;
+  font-family: var(--GothamProBlack);
   font-size: 20px;
   line-height: 1.25;
   text-align: center;
@@ -124,14 +124,14 @@
 .availabilitySubBox > p {
   font-size: 13px;
   line-height: 130%;
-  color: #a8a8a8;
+  color: var(--grey);
   margin: 0;
 }
 
 .availabilitySubBox > span {
   font-size: 13px;
   line-height: 130%;
-  color: #000c0c;
+  color: var(--black);
 }
 
 .footerBox {
@@ -146,14 +146,14 @@
 }
 
 .consignment {
-  color: #a8a8a8;
+  color: var(--grey);
   margin-left: auto;
 }
 
 .endPromotion > span {
-  color: #9cc330;
+  color: var(--green);
 }
 
 .consignment > span {
-  color: #000c0c;
+  color: var(--black);
 }

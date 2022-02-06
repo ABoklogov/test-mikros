@@ -15,6 +15,6 @@
   line-height: 0.92;
   text-align: center;
   letter-spacing: 0.08em;
-  color: #000c0c;
+  color: var(--black);
   margin-right: 10px;
 }
