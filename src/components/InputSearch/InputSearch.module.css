@@ -9,6 +9,7 @@
     border: 2px solid #dddddd;
     box-sizing: border-box;
     border-radius: 10px;
+    font-family: var(--GothamProRegular);
     font-size: 17px;
     line-height: 120%;
     color: var(--darkGray);

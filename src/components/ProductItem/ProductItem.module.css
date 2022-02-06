@@ -76,6 +76,10 @@
   margin: 0;
 }
 
+.price > span {
+  font-weight: 900;
+}
+
 .priceBox {
   display: flex;
   flex-direction: row;

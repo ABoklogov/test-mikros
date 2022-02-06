@@ -55,7 +55,9 @@ const ProductItem = ({ source }) => {
         <p className={s.infoProduct}>{name}</p>
 
         <div className={s.priceBox}>
-          <p className={s.price}>{basePrice} ₽</p>
+          <p className={s.price}>
+            {basePrice} <span>₽</span>
+          </p>
           {oldPrice !== 0 && <span className={s.oldPrice}>{oldPrice}</span>}
 
           {oldPrice !== 0 && (
