@@ -1,17 +1,42 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { userAction, userSelectors } from '../../redux/user';
 import s from './CounterButton.module.css';
 import { ClickAwayListener } from '@mui/base';
 
-const CounterButton = ({ setButtonBasket, price }) => {
+const CounterButton = ({ setButtonBasket, price, source, id }) => {
   const [number, setNumber] = useState(1);
-  // const [totalPrice, setTotalPrice] = useState(0);
-  // console.log(totalPrice);
+  const dispatch = useDispatch();
+  const listProductsInBasket = useSelector(userSelectors.getBasket);
+
+  const basketProduct = {
+    total: number,
+    id,
+    source,
+  };
+
+  useEffect(() => {
+    //проверяем пуста ли корзина?:
+    if (listProductsInBasket.length === 0) {
+      dispatch(userAction.addShoppingOneElement(basketProduct));
+      return;
+    }
+
+    // проверяем есть ли в корзине данный продукт? Если есть устанавиваем ему нужное значение total:
+    const currentProduct = listProductsInBasket.find(el => el.id === id);
+    if (currentProduct?.id === id) setNumber(currentProduct.total);
+
+    // проверяем наличие товара в корзине, если его нет, то добавляем:
+    const presenceProductInBasket = listProductsInBasket.some(
+      el => el.id === id,
+    );
+    if (!presenceProductInBasket)
+      dispatch(userAction.addShoppingOneElement(basketProduct));
+  }, []);
 
   const increment = () => {
     setNumber(number + 1);
-    // const notRoundedPrice = totalPrice + price;
-    // console.log(notRoundedPrice);
-    // setTotalPrice(notRoundedPrice);
+    dispatch(userAction.addShopping(basketProduct));
   };
 
   const decrement = () => {
@@ -20,9 +45,7 @@ const CounterButton = ({ setButtonBasket, price }) => {
       return;
     }
     setNumber(number - 1);
-
-    // if (totalPrice < price) return;
-    // setTotalPrice(totalPrice - price);
+    // dispatch(userAction.removeShopping({ source, id, number }));
   };
 
   const handleClose = () => {

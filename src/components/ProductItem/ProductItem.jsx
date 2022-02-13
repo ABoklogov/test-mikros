@@ -9,7 +9,7 @@ import { timeUntil } from '@tobynatooor/countdown';
 import ButtonBasket from '../ButtonBasket';
 import CounterButton from '../CounterButton';
 
-const ProductItem = ({ source }) => {
+const ProductItem = ({ source, id }) => {
   const sale = source.PROPERTYS.SKIDKA !== '0';
   const label = source.PROPERTYS.TOVAR_DNYA === 'Да';
   const salePercent = source.PROPERTYS.SKIDKA;
@@ -80,6 +80,8 @@ const ProductItem = ({ source }) => {
             <CounterButton
               setButtonBasket={setButtonBasket}
               price={basePrice}
+              source={source}
+              id={id}
             />
           )}
         </div>

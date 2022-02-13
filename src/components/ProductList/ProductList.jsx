@@ -55,7 +55,7 @@ const ProductList = () => {
     <ul className={s.box}>
       {filteredProducts?.map(({ _id, _source }) => (
         <li className={s.productItem} key={_id}>
-          <ProductItem source={_source} />
+          <ProductItem source={_source} id={_id} />
         </li>
       ))}
     </ul>
