@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { userSelectors } from '../../redux/user';
 import s from './MenuHeader.module.css';
 import logo from '../../images/icons/logo.svg';
 import full from '../../images/icons/full.svg';
@@ -9,8 +12,19 @@ import InputSearch from '../InputSearch';
 import options from '../../options.js';
 
 const MenuHeader = () => {
+  const [basketPrice, setBasketPrice] = useState(0);
+  const listProductsInBasket = useSelector(userSelectors.getBasket);
   const textBtn = options.buttons.katalog.text;
   const altIconBtn = options.buttons.katalog.alt;
+
+  // подсчет стоимости товаров из корзины:
+  useEffect(() => {
+    const totalPrice = listProductsInBasket.reduce(
+      (acc, { total, source }) => acc + total * source.PRICE.BASE,
+      0,
+    );
+    setBasketPrice(totalPrice);
+  }, [listProductsInBasket]);
 
   return (
     <div className={s.box}>
@@ -55,7 +69,7 @@ const MenuHeader = () => {
               <img src={full} alt="full" width={35} />
             </span>
 
-            <p className={s.fullPrice}>1144.50р.</p>
+            <p className={s.fullPrice}>{basketPrice}р.</p>
           </a>
           <a className={s.links} href="#">
             <span>

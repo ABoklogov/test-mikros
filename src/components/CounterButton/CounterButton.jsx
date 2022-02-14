@@ -4,7 +4,7 @@ import { userAction, userSelectors } from '../../redux/user';
 import s from './CounterButton.module.css';
 import { ClickAwayListener } from '@mui/base';
 
-const CounterButton = ({ setButtonBasket, price, source, id }) => {
+const CounterButton = ({ setButtonBasket, source, id }) => {
   const [number, setNumber] = useState(1);
   const dispatch = useDispatch();
   const listProductsInBasket = useSelector(userSelectors.getBasket);
@@ -45,7 +45,7 @@ const CounterButton = ({ setButtonBasket, price, source, id }) => {
       return;
     }
     setNumber(number - 1);
-    // dispatch(userAction.removeShopping({ source, id, number }));
+    dispatch(userAction.removeShopping(basketProduct));
   };
 
   const handleClose = () => {

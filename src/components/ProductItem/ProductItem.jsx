@@ -79,7 +79,6 @@ const ProductItem = ({ source, id }) => {
           ) : (
             <CounterButton
               setButtonBasket={setButtonBasket}
-              price={basePrice}
               source={source}
               id={id}
             />

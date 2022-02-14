@@ -15,17 +15,15 @@ const userSlice = createSlice({
     },
 
     [userAction.addShopping](state, { payload }) {
-      state.basket.forEach(el => {
+      state.basket.some(el => {
         if (el.id === payload.id) ++el.total;
-        if (el.id !== payload.id) return [...state.basket, payload];
       });
     },
 
     [userAction.removeShopping](state, { payload }) {
-      state.basket.forEach(el => {
-        if (el.total) if (el.id === payload.id) el.total = el.total - 1;
+      state.basket.some(el => {
+        if (el.id === payload.id) --el.total;
       });
-      // state.basket.filter(el => el.id !== payload.id);
     },
   },
 });
