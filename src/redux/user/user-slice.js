@@ -25,6 +25,10 @@ const userSlice = createSlice({
         if (el.id === payload.id) --el.total;
       });
     },
+
+    [userAction.deleteProduct](state, { payload }) {
+      state.basket = state.basket.filter(el => el.id !== payload);
+    },
   },
 });
 

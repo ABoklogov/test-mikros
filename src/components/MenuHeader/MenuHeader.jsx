@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { userSelectors } from '../../redux/user';
 import s from './MenuHeader.module.css';
+import Tooltip from '@mui/material/Tooltip';
 import logo from '../../images/icons/logo.svg';
 import full from '../../images/icons/full.svg';
 import person from '../../images/icons/person.svg';
@@ -10,6 +11,7 @@ import iconKatalog from '../../images/icons/catalog.svg';
 import Button from '../Button';
 import InputSearch from '../InputSearch';
 import options from '../../options.js';
+import BasketToolptip from '../BasketToolptip';
 
 const MenuHeader = () => {
   const [basketPrice, setBasketPrice] = useState(0);
@@ -64,13 +66,25 @@ const MenuHeader = () => {
 
             <p className={s.linksText}>Войти</p>
           </a>
-          <a className={s.links} href="#">
-            <span>
-              <img src={full} alt="full" width={35} />
-            </span>
 
-            <p className={s.fullPrice}>{basketPrice}р.</p>
-          </a>
+          <Tooltip
+            title={
+              listProductsInBasket.length === 0 ? (
+                'Корзина пуста'
+              ) : (
+                <BasketToolptip />
+              )
+            }
+          >
+            <a className={s.links} href="#">
+              <span>
+                <img src={full} alt="full" width={35} />
+              </span>
+
+              <p className={s.fullPrice}>{basketPrice.toFixed(2)}р.</p>
+            </a>
+          </Tooltip>
+
           <a className={s.links} href="#">
             <span>
               <img src={love} alt="love" width={35} />
