@@ -1,9 +1,15 @@
 {
   "files": {
-    "main.css": "/test-mikros/static/css/main.8b576d1b.css",
-    "main.js": "/test-mikros/static/js/main.a3c2a829.js",
+    "main.css": "/test-mikros/static/css/main.ed1f7140.css",
+    "main.js": "/test-mikros/static/js/main.38e15534.js",
     "static/media/product.png": "/test-mikros/static/media/product.8ba82f50ccfb395b94e8.png",
+    "static/media/GothamProBlack.ttf": "/test-mikros/static/media/GothamProBlack.889cb46ae48359555229.ttf",
+    "static/media/GothamProRegular.eot": "/test-mikros/static/media/GothamProRegular.aa3126db1a25a9cec8f4.eot",
+    "static/media/GothamProRegular.ttf": "/test-mikros/static/media/GothamProRegular.460892a76436eac7ff56.ttf",
     "static/media/logo.svg": "/test-mikros/static/media/logo.7a4a3bed3ec9b27b7f6ea48183299931.svg",
+    "static/media/GothamProBlack.woff": "/test-mikros/static/media/GothamProBlack.e71e799bc0e4c50c89d1.woff",
+    "static/media/GothamProRegular.woff": "/test-mikros/static/media/GothamProRegular.2363edf9f054579f3720.woff",
+    "static/media/GothamProBlack.eot": "/test-mikros/static/media/GothamProBlack.efdefd5b14f98cfd178f.eot",
     "static/media/full.svg": "/test-mikros/static/media/full.313e7cae5f51d19552f2aba87c71a856.svg",
     "static/media/locationNet.svg": "/test-mikros/static/media/locationNet.8676a427077a32a96096ae99a2e5cf00.svg",
     "static/media/marker.svg": "/test-mikros/static/media/marker.aac878deaf53d32095f7912b205a63e3.svg",
@@ -19,11 +25,11 @@
     "static/media/locationNext.svg": "/test-mikros/static/media/locationNext.4347513cc5de2e532d092bd894ebc0ad.svg",
     "static/media/arrowBottom.svg": "/test-mikros/static/media/arrowBottom.e46d98df4a11b056675cf9bd33b54526.svg",
     "static/media/arrowMenuFilter.svg": "/test-mikros/static/media/arrowMenuFilter.1a9e9f5b239386a753c96424bb3255d2.svg",
-    "main.8b576d1b.css.map": "/test-mikros/static/css/main.8b576d1b.css.map",
-    "main.a3c2a829.js.map": "/test-mikros/static/js/main.a3c2a829.js.map"
+    "main.ed1f7140.css.map": "/test-mikros/static/css/main.ed1f7140.css.map",
+    "main.38e15534.js.map": "/test-mikros/static/js/main.38e15534.js.map"
   },
   "entrypoints": [
-    "static/css/main.8b576d1b.css",
-    "static/js/main.a3c2a829.js"
+    "static/css/main.ed1f7140.css",
+    "static/js/main.38e15534.js"
   ]
 }
