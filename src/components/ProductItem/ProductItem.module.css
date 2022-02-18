@@ -161,3 +161,7 @@
 .consignment > span {
   color: var(--black);
 }
+
+.loveIcon {
+  cursor: pointer;
+}

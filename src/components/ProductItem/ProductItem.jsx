@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import { productsAction, productsSelectors } from '../../redux/products';
+import { userAction, userSelectors } from '../../redux/user';
 import s from './ProductItem.module.css';
 import product from '../../images/product.png';
-import love from '../../images/icons/love.svg';
+// import love from '../../images/icons/love.svg';
 import wet from '../../images/icons/wet.svg';
 import { timeUntil } from '@tobynatooor/countdown';
 import ButtonBasket from '../ButtonBasket';
@@ -26,12 +27,32 @@ const ProductItem = ({ source, id }) => {
     endPoint.minutes % 60
   }`;
   const [buttonBasket, setButtonBasket] = useState(true);
-  // const dispatch = useDispatch();
+  const [loveProduct, setLoveProduct] = useState(false);
+  const dispatch = useDispatch();
+  const getLoveProducts = useSelector(userSelectors.getLoveProducts);
   // const dataFiltered = useSelector(productsSelectors.getDataFiltered);
 
   // useEffect(() => {
   //   if (dataFiltered) dispatch(productsAction.showFilteredData(false));
   // }, [dispatch]);
+  const likedProduct = {
+    name,
+    id,
+  };
+
+  const toglleLoveProducts = () => {
+    setLoveProduct(!loveProduct);
+    if (getLoveProducts.length === 0) {
+      dispatch(userAction.addLoveProduct(likedProduct));
+      return;
+    }
+
+    const currentProduct = getLoveProducts.find(el => el.id === id);
+
+    currentProduct?.id !== id
+      ? dispatch(userAction.addLoveProduct(likedProduct))
+      : dispatch(userAction.deleteLoveProduct(id));
+  };
 
   return (
     <div className={s.box}>
@@ -39,7 +60,31 @@ const ProductItem = ({ source, id }) => {
         <p className={s.articule}>
           Артикул: <span className={s.articuleNum}>{articule}</span>
         </p>
-        <img src={love} alt="love" />
+
+        <svg
+          onClick={toglleLoveProducts}
+          id={id}
+          className={s.loveIcon}
+          width="35"
+          height="35"
+          viewBox="0 0 35 35"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16.6912 30.2762L5.21527 18.3259C1.98283 14.9599 2.18638 9.44067 5.65721 6.34272C9.10053 3.26931 14.3215 3.86612 17.0425 7.64416L17.5 8.27931L17.9575 7.64416C20.6786 3.86612 25.8994 3.26931 29.3428 6.34272C32.8137 9.44067 33.0173 14.9599 29.7847 18.3259L18.3088 30.2762C17.8621 30.7412 17.1379 30.7412 16.6912 30.2762Z"
+            fill="white"
+            stroke="#5C5C5C"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={
+              loveProduct
+                ? { fill: '#fd3e49', stroke: '#fd3e49' }
+                : { fill: 'white' }
+            }
+          />
+        </svg>
       </div>
 
       <div className={s.imageBox}>

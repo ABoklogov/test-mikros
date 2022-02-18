@@ -4,6 +4,7 @@ import * as userAction from './user-action.js';
 
 const initialState = {
   basket: [],
+  loveProducts: [],
 };
 
 const userSlice = createSlice({
@@ -28,6 +29,14 @@ const userSlice = createSlice({
 
     [userAction.deleteProduct](state, { payload }) {
       state.basket = state.basket.filter(el => el.id !== payload);
+    },
+
+    [userAction.addLoveProduct](state, { payload }) {
+      state.loveProducts.push(payload);
+    },
+
+    [userAction.deleteLoveProduct](state, { payload }) {
+      state.loveProducts = state.loveProducts.filter(el => el.id !== payload);
     },
   },
 });
