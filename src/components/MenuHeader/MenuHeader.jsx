@@ -12,10 +12,12 @@ import Button from '../Button';
 import InputSearch from '../InputSearch';
 import options from '../../options.js';
 import BasketToolptip from '../BasketToolptip';
+import LoveToolptip from '../LoveToolptip';
 
 const MenuHeader = () => {
   const [basketPrice, setBasketPrice] = useState(0);
   const listProductsInBasket = useSelector(userSelectors.getBasket);
+  const getLoveProducts = useSelector(userSelectors.getLoveProducts);
   const textBtn = options.buttons.katalog.text;
   const altIconBtn = options.buttons.katalog.alt;
 
@@ -66,7 +68,6 @@ const MenuHeader = () => {
 
             <p className={s.linksText}>Войти</p>
           </a>
-
           <Tooltip
             title={
               listProductsInBasket.length === 0 ? (
@@ -84,14 +85,17 @@ const MenuHeader = () => {
               <p className={s.fullPrice}>{basketPrice.toFixed(2)}р.</p>
             </a>
           </Tooltip>
+          <Tooltip
+            title={getLoveProducts.length === 0 ? 'пусто' : <LoveToolptip />}
+          >
+            <a className={s.links} href="#">
+              <span>
+                <img src={love} alt="love" width={35} />
+              </span>
 
-          <a className={s.links} href="#">
-            <span>
-              <img src={love} alt="love" width={35} />
-            </span>
-
-            <p className={s.linksText}>Избранное</p>
-          </a>
+              <p className={s.linksText}>Избранное</p>
+            </a>
+          </Tooltip>
         </div>
       </div>
     </div>

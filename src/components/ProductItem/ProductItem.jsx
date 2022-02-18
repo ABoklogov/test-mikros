@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userAction, userSelectors } from '../../redux/user';
 import s from './ProductItem.module.css';
 import product from '../../images/product.png';
-// import love from '../../images/icons/love.svg';
 import wet from '../../images/icons/wet.svg';
 import { timeUntil } from '@tobynatooor/countdown';
 import ButtonBasket from '../ButtonBasket';
@@ -35,6 +34,11 @@ const ProductItem = ({ source, id }) => {
   // useEffect(() => {
   //   if (dataFiltered) dispatch(productsAction.showFilteredData(false));
   // }, [dispatch]);
+  useEffect(() => {
+    const currentProduct = getLoveProducts.find(el => el.id === id);
+    currentProduct?.id === id ? setLoveProduct(true) : setLoveProduct(false);
+  }, [getLoveProducts, id]);
+
   const likedProduct = {
     name,
     id,

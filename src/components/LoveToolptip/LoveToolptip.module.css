@@ -1,0 +1,19 @@
+.list {
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.close {
+  cursor: pointer;
+}
+
+.text {
+  font-family: var(--GothamProRegular);
+  font-size: 17px;
+  line-height: 1.09;
+  /* color: var(--black); */
+}
