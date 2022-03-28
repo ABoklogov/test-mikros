@@ -1,0 +1,46 @@
+.image {
+  display: block;
+  max-width: 200px;
+  height: auto;
+  cursor: pointer;
+  margin: 0 auto;
+}
+.imageBox {
+  position: relative;
+  margin-right: 50px;
+  margin-bottom: 12px;
+}
+.infoProduct {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 120%;
+  color: var(--black);
+  height: 40px;
+  margin: 0;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.availabilityBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.availabilitySubBox {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+}
+.lineBox {
+  display: flex;
+}
+.contentBox {
+  width: 100%;
+}
+.contentSubBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}

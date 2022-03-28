@@ -1,14 +1,25 @@
+import { useDispatch } from 'react-redux';
+import { productsAction } from '../../redux/products';
 import s from './MainSettings.module.css';
 import SortMenu from '../SortMenu';
-import locationNet from '../../images/icons/locationNet.svg';
-import locationNext from '../../images/icons/locationNext.svg';
+import LocationProductsGrid from '../LocationProductsGrid';
+import LocationProductsLine from '../LocationProductsLine';
 import options from '../../options';
 
 const MainSettings = () => {
+  const dispatch = useDispatch();
   const textMenuSort = options.sortMenu.textMenu[0];
   const textItemsSort = options.sortMenu.menuItem.sort;
   const textMenuDisplay = options.sortMenu.textMenu[1];
   const textItemsDisplay = options.sortMenu.menuItem.display;
+
+  const locationProductsGrid = e => {
+    console.dir(e.target);
+    dispatch(productsAction.changeLocationProducts(true));
+  };
+  const locationProductsLine = () => {
+    dispatch(productsAction.changeLocationProducts(false));
+  };
 
   return (
     <div className={s.subBox}>
@@ -16,8 +27,8 @@ const MainSettings = () => {
       <SortMenu textMenu={textMenuDisplay} textItems={textItemsDisplay} />
 
       <div className={s.locationItems}>
-        <img src={locationNet} alt="locationNet" />
-        <img src={locationNext} alt="locationNext" />
+        <LocationProductsGrid locationProductsGrid={locationProductsGrid} />
+        <LocationProductsLine locationProductsLine={locationProductsLine} />
       </div>
     </div>
   );

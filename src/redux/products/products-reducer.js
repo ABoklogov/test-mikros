@@ -22,6 +22,7 @@ import {
   deleteColors,
   fetchFilteredProducts,
   showProductPage,
+  changeLocationProducts,
 } from './products-action';
 
 const productCategories = createReducer([], {
@@ -105,6 +106,9 @@ const dataFiltered = createReducer(false, {
   [showFilteredData]: (_, { payload }) => payload,
 });
 
+const productsGrid = createReducer(true, {
+  [changeLocationProducts]: (_, { payload }) => payload,
+});
 // const filterCategories = createReducer([], {
 //   [selectCategories]: (state, { payload }) => [...state, payload],
 // });
@@ -119,6 +123,7 @@ const productsReducer = combineReducers({
   colors,
   dataFiltered,
   filteredProducts,
+  productsGrid,
   // filterCategories,
 });
 

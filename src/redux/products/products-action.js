@@ -16,6 +16,10 @@ export const displayBy20 = createAction('products/displayBy20');
 export const displayBy40 = createAction('products/displayBy40');
 export const displayBy60 = createAction('products/displayBy60');
 
+export const changeLocationProducts = createAction(
+  'products/changeLocationProducts',
+);
+
 export const fixPriceRange = createAction('products/fixPriceRange');
 
 export const fixDimensions = createAction('products/fixDimensions');

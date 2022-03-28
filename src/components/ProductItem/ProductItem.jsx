@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { productsAction, productsSelectors } from '../../redux/products';
+import { productsSelectors } from '../../redux/products';
 import { userAction, userSelectors } from '../../redux/user';
-import s from './ProductItem.module.css';
+import styleGrid from './ProductItem.module.css';
+import styleLine from './ProductItemLine.module.css';
 import product from '../../images/product.png';
 import wet from '../../images/icons/wet.svg';
 import { timeUntil } from '@tobynatooor/countdown';
@@ -29,6 +30,7 @@ const ProductItem = ({ source, id }) => {
   const [loveProduct, setLoveProduct] = useState(false);
   const dispatch = useDispatch();
   const getLoveProducts = useSelector(userSelectors.getLoveProducts);
+  const productDisplayGrid = useSelector(productsSelectors.getProductsLocation);
   // const dataFiltered = useSelector(productsSelectors.getDataFiltered);
 
   // useEffect(() => {
@@ -59,16 +61,16 @@ const ProductItem = ({ source, id }) => {
   };
 
   return (
-    <div className={s.box}>
-      <div className={s.articuleBox}>
-        <p className={s.articule}>
-          Артикул: <span className={s.articuleNum}>{articule}</span>
+    <div className={styleGrid.box}>
+      <div className={styleGrid.articuleBox}>
+        <p className={styleGrid.articule}>
+          Артикул: <span className={styleGrid.articuleNum}>{articule}</span>
         </p>
 
         <svg
           onClick={toglleLoveProducts}
           id={id}
-          className={s.loveIcon}
+          className={styleGrid.loveIcon}
           width="35"
           height="35"
           viewBox="0 0 35 35"
@@ -91,67 +93,99 @@ const ProductItem = ({ source, id }) => {
         </svg>
       </div>
 
-      <div className={s.imageBox}>
-        <img className={s.image} src={product} alt="product" />
-        {label && (
-          <div className={s.label}>
-            <span>Товар дня</span>
-          </div>
-        )}
-      </div>
-
-      <div>
-        <p className={s.infoProduct}>{name}</p>
-
-        <div className={s.priceBox}>
-          <p className={s.price}>
-            {basePrice} <span>₽</span>
-          </p>
-          {oldPrice !== 0 && <span className={s.oldPrice}>{oldPrice}</span>}
-
-          {oldPrice !== 0 && (
-            <div className={s.wet}>
-              <img src={wet} alt="wet" />
-              <span>-{salePercent}%</span>
+      <div className={productDisplayGrid ? '' : styleLine.lineBox}>
+        <div
+          className={
+            productDisplayGrid ? styleGrid.imageBox : styleLine.imageBox
+          }
+        >
+          <img
+            className={productDisplayGrid ? styleGrid.image : styleLine.image}
+            src={product}
+            alt="product"
+          />
+          {label && (
+            <div className={styleGrid.label}>
+              <span>Товар дня</span>
             </div>
           )}
         </div>
 
-        <div className={s.availabilityBox}>
-          <div className={s.availabilitySubBox}>
-            <p>Наличие на складах:</p>
-            <span>Ростов-на-дону - {`${rostov}`} упак.</span>
-            <span>Воронеж - {`${voronezh}`} упак.</span>
-          </div>
-          {buttonBasket ? (
-            <ButtonBasket setButtonBasket={setButtonBasket} />
-          ) : (
-            <CounterButton
-              setButtonBasket={setButtonBasket}
-              source={source}
-              id={id}
-            />
-          )}
-        </div>
-
-        <div
-          className={s.footerBox}
-          style={
-            sale
-              ? { justifyContent: 'space-between' }
-              : { justifyContent: 'flex-end' }
-          }
-        >
-          {sale && (
-            <p className={s.endPromotion}>
-              До конца акции:
-              <span>{` ${endPointString}`}</span>
-            </p>
-          )}
-          <p className={s.consignment}>
-            Мин. партия:
-            <span>{` ${minPartiya} ${baseUnit}.`}</span>
+        <div className={productDisplayGrid ? '' : styleLine.contentBox}>
+          <p
+            className={
+              productDisplayGrid ? styleGrid.infoProduct : styleLine.infoProduct
+            }
+          >
+            {name}
           </p>
+
+          <div className={productDisplayGrid ? '' : styleLine.contentSubBox}>
+            <div className={styleGrid.priceBox}>
+              <p className={styleGrid.price}>
+                {basePrice} <span>₽</span>
+              </p>
+              {oldPrice !== 0 && (
+                <span className={styleGrid.oldPrice}>{oldPrice}</span>
+              )}
+
+              {oldPrice !== 0 && (
+                <div className={styleGrid.wet}>
+                  <img src={wet} alt="wet" />
+                  <span>-{salePercent}%</span>
+                </div>
+              )}
+            </div>
+
+            <div
+              className={
+                productDisplayGrid
+                  ? styleGrid.availabilityBox
+                  : styleLine.availabilityBox
+              }
+            >
+              <div
+                className={
+                  productDisplayGrid
+                    ? styleGrid.availabilitySubBox
+                    : styleLine.availabilitySubBox
+                }
+              >
+                <p>Наличие на складах:</p>
+                <span>Ростов-на-дону - {`${rostov}`} упак.</span>
+                <span>Воронеж - {`${voronezh}`} упак.</span>
+              </div>
+              {buttonBasket ? (
+                <ButtonBasket setButtonBasket={setButtonBasket} />
+              ) : (
+                <CounterButton
+                  setButtonBasket={setButtonBasket}
+                  source={source}
+                  id={id}
+                />
+              )}
+            </div>
+
+            <div
+              className={styleGrid.footerBox}
+              style={
+                sale
+                  ? { justifyContent: 'space-between' }
+                  : { justifyContent: 'flex-end' }
+              }
+            >
+              {sale && (
+                <p className={styleGrid.endPromotion}>
+                  До конца акции:
+                  <span>{` ${endPointString}`}</span>
+                </p>
+              )}
+              <p className={styleGrid.consignment}>
+                Мин. партия:
+                <span>{` ${minPartiya} ${baseUnit}.`}</span>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

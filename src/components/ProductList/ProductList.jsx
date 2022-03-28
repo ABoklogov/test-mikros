@@ -5,7 +5,8 @@ import {
   productsOperations,
   productsAction,
 } from '../../redux/products';
-import s from './ProductList.module.css';
+import styleGrid from './ProductList.module.css';
+import styleLine from './ProductListLine.module.css';
 import ProductItem from '../ProductItem';
 
 const ProductList = () => {
@@ -18,6 +19,7 @@ const ProductList = () => {
   const dimensions = useSelector(productsSelectors.getDimensions);
   const colors = useSelector(productsSelectors.getColors);
   const filteredProducts = useSelector(productsSelectors.getFilteredProducts);
+  const productDisplayGrid = useSelector(productsSelectors.getProductsLocation);
 
   //загружаем полный массив товаров и цильтруем по алфавиту/цене:
   useEffect(() => {
@@ -52,9 +54,14 @@ const ProductList = () => {
   }, [dispatch, displayBy, products]);
 
   return (
-    <ul className={s.box}>
+    <ul className={productDisplayGrid ? styleGrid.box : styleLine.box}>
       {filteredProducts?.map(({ _id, _source }) => (
-        <li className={s.productItem} key={_id}>
+        <li
+          className={
+            productDisplayGrid ? styleGrid.productItem : styleLine.productItem
+          }
+          key={_id}
+        >
           <ProductItem source={_source} id={_id} />
         </li>
       ))}
