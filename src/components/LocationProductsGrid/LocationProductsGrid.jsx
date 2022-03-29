@@ -1,13 +1,16 @@
-import locationNet from '../../images/icons/locationNet.svg';
+import { useSelector } from 'react-redux';
+import { productsSelectors } from '../../redux/products';
 
 const LocationProductsGrid = ({ locationProductsGrid }) => {
+  const productDisplayGrid = useSelector(productsSelectors.getProductsLocation);
+
   return (
     <svg
       onClick={locationProductsGrid}
+      fill={productDisplayGrid ? '#0097FF' : '#DDD'}
       width="38"
       height="39"
       viewBox="0 0 38 39"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect
@@ -15,7 +18,7 @@ const LocationProductsGrid = ({ locationProductsGrid }) => {
         width="10.3636"
         height="11.2667"
         rx="2"
-        fill="#0097FF"
+        fill="inherit"
       />
       <rect
         x="13.8182"
@@ -23,7 +26,7 @@ const LocationProductsGrid = ({ locationProductsGrid }) => {
         width="10.3636"
         height="11.2667"
         rx="2"
-        fill="#0097FF"
+        fill="inherit"
       />
       <rect
         x="13.8182"
@@ -31,14 +34,14 @@ const LocationProductsGrid = ({ locationProductsGrid }) => {
         width="10.3636"
         height="11.2667"
         rx="2"
-        fill="#0097FF"
+        fill="inherit"
       />
       <rect
         x="27.6364"
         width="10.3636"
         height="11.2667"
         rx="2"
-        fill="#0097FF"
+        fill="inherit"
       />
       <rect
         x="27.6364"
@@ -46,7 +49,7 @@ const LocationProductsGrid = ({ locationProductsGrid }) => {
         width="10.3636"
         height="11.2667"
         rx="2"
-        fill="#0097FF"
+        fill="inherit"
       />
       <rect
         x="27.6364"
@@ -54,26 +57,24 @@ const LocationProductsGrid = ({ locationProductsGrid }) => {
         width="10.3636"
         height="11.2667"
         rx="2"
-        fill="#0097FF"
+        fill="inherit"
       />
-      <rect width="10.3636" height="11.2667" rx="2" fill="#0097FF" />
+      <rect width="10.3636" height="11.2667" rx="2" fill="inherit" />
       <rect
         y="13.8667"
         width="10.3636"
         height="11.2667"
         rx="2"
-        fill="#0097FF"
+        fill="inherit"
       />
       <rect
         y="27.7333"
         width="10.3636"
         height="11.2667"
         rx="2"
-        fill="#0097FF"
+        fill="inherit"
       />
     </svg>
-
-    // <img src={locationNet} alt="locationNet" onClick={locationProductsGrid} />
   );
 };
 

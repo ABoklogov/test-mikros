@@ -2,10 +2,10 @@
   display: flex;
   justify-content: space-between;
 }
-.locationItems > img {
+.locationItems > svg {
   cursor: pointer;
 }
 
-.locationItems > img:not(:last-child) {
+.locationItems > svg:not(:last-child) {
   margin-right: 11px;
 }

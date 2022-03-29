@@ -13,8 +13,7 @@ const MainSettings = () => {
   const textMenuDisplay = options.sortMenu.textMenu[1];
   const textItemsDisplay = options.sortMenu.menuItem.display;
 
-  const locationProductsGrid = e => {
-    console.dir(e.target);
+  const locationProductsGrid = () => {
     dispatch(productsAction.changeLocationProducts(true));
   };
   const locationProductsLine = () => {
