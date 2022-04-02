@@ -11,4 +11,11 @@
   --blue: #0097ff;
   --green: #9cc330;
   --blueBackground: rgba(64, 171, 244, 0.1);
+
+  /* shadows */
+  --shadowGray: rgba(0, 0, 0, 0.3);
+  --shadowWhite: rgba(228, 217, 217, 0.546);
+
+  /* functions */
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }

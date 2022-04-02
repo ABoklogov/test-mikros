@@ -4,24 +4,48 @@
   margin: 0;
 }
 
+.title {
+  font-family: var(--GothamProBlack);
+  font-size: 23px;
+  line-height: 25px;
+  color: var(--black);
+  margin: 0;
+  margin-bottom: 32px;
+}
+
 .box > li {
   list-style: none;
 }
 
 .buttons {
-  background-color: var(--blueBackground);
   border-radius: 10px;
   border: none;
   padding-top: 23px;
   padding-bottom: 21px;
   padding-left: 14px;
   padding-right: 14px;
-
+  cursor: pointer;
   font-size: 17px;
   line-height: 0.94;
   text-align: center;
   letter-spacing: 0.1em;
+  background-color: var(--blueBackground);
   color: var(--darkGray);
+  box-shadow: 3px 5px 5px 2px var(--shadowWhite);
+  transition: background-color 500ms var(--timing-function),
+    color 500ms var(--timing-function), box-shadow 500ms var(--timing-function);
+}
+
+.buttons:hover {
+  background-color: var(--blue);
+  color: var(--black);
+  box-shadow: 5px 10px 8px 2px var(--shadowGray);
+}
+
+.buttons.active {
+  background-color: var(--blue);
+  color: var(--black);
+  box-shadow: 5px 10px 8px 2px var(--shadowGray);
 }
 
 .box > li:not(:last-child) {

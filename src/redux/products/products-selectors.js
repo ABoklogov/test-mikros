@@ -18,3 +18,5 @@ export const getDataFiltered = state => state.products.dataFiltered;
 export const getFilteredProducts = state => state.products.filteredProducts;
 
 export const getProductsLocation = state => state.products.productsGrid;
+
+export const getFilteredCategories = state => state.products.filterCategories;

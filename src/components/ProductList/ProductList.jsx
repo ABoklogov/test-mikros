@@ -21,7 +21,7 @@ const ProductList = () => {
   const filteredProducts = useSelector(productsSelectors.getFilteredProducts);
   const productDisplayGrid = useSelector(productsSelectors.getProductsLocation);
 
-  //загружаем полный массив товаров и цильтруем по алфавиту/цене:
+  //загружаем полный массив товаров и фильтруем по алфавиту/цене:
   useEffect(() => {
     if (!dataFiltered) dispatch(productsOperations.fetchProducts());
 

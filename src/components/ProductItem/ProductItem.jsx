@@ -22,7 +22,7 @@ const ProductItem = ({ source, id }) => {
   const voronezh = source.STORE[472];
   const baseUnit = source.PROPERTYS.CML2_BASE_UNIT;
   const minPartiya = source.PROPERTYS.MINIMALNAYA_PARTIYA;
-  const endPoint = timeUntil('2022-02-28T20:20:20');
+  const endPoint = timeUntil('2022-05-28T20:20:20');
   const endPointString = `${endPoint.days % 365}:${endPoint.hours % 24}:${
     endPoint.minutes % 60
   }`;
@@ -31,11 +31,7 @@ const ProductItem = ({ source, id }) => {
   const dispatch = useDispatch();
   const getLoveProducts = useSelector(userSelectors.getLoveProducts);
   const productDisplayGrid = useSelector(productsSelectors.getProductsLocation);
-  // const dataFiltered = useSelector(productsSelectors.getDataFiltered);
 
-  // useEffect(() => {
-  //   if (dataFiltered) dispatch(productsAction.showFilteredData(false));
-  // }, [dispatch]);
   useEffect(() => {
     const currentProduct = getLoveProducts.find(el => el.id === id);
     currentProduct?.id === id ? setLoveProduct(true) : setLoveProduct(false);

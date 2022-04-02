@@ -8,10 +8,11 @@ import {
 } from '../../redux/products';
 
 const ListPossibleGoods = () => {
-  // const [listDeletedCategories, setListDeletedCategories] = useState([]);
-
   const getListProductCategories = useSelector(
     productsSelectors.getListProductCategories,
+  );
+  const filteredCategories = useSelector(
+    productsSelectors.getFilteredCategories,
   );
   const dispatch = useDispatch();
 
@@ -20,29 +21,35 @@ const ListPossibleGoods = () => {
   }, [dispatch]);
 
   const chooseCategory = e => {
-    getListProductCategories.forEach(el => {
-      if (el.NAME === e.target.innerText) {
-        // dispatch(productsAction.selectCategories(el));
-        // setListDeletedCategories(listDeletedCategories => [
-        //   el,
-        //   ...listDeletedCategories,
-        // ]);
-      }
-    });
+    const selectedCategory = e.target.innerText;
+    const foundCategory = filteredCategories.find(
+      el => el === selectedCategory,
+    );
+
+    if (!foundCategory) {
+      dispatch(productsAction.addCategory(selectedCategory));
+      e.target.style.backgroundColor = '#0097ff';
+      e.target.style.color = '#000c0c';
+    } else {
+      dispatch(productsAction.deleteCategory(selectedCategory));
+      e.target.style.backgroundColor = '';
+      e.target.style.color = '';
+    }
   };
 
-  // console.log(listDeletedCategories);
-
   return (
-    <ul className={s.box}>
-      {getListProductCategories?.map(({ NAME, ID }) => (
-        <li key={ID}>
-          <button onClick={chooseCategory} className={s.buttons}>
-            {NAME}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <div>
+      <h2 className={s.title}>Категории товаров:</h2>
+      <ul className={s.box}>
+        {getListProductCategories?.map(({ NAME, ID }) => (
+          <li key={ID}>
+            <button onClick={chooseCategory} className={s.buttons}>
+              {NAME}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

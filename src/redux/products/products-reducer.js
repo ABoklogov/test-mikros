@@ -2,7 +2,8 @@ import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import {
   fetchProductCategories,
-  selectCategories,
+  addCategory,
+  deleteCategory,
   fetchProduct,
   sort,
   display,
@@ -109,9 +110,11 @@ const dataFiltered = createReducer(false, {
 const productsGrid = createReducer(true, {
   [changeLocationProducts]: (_, { payload }) => payload,
 });
-// const filterCategories = createReducer([], {
-//   [selectCategories]: (state, { payload }) => [...state, payload],
-// });
+
+const filterCategories = createReducer([], {
+  [addCategory]: (state, { payload }) => [...state, payload],
+  [deleteCategory]: (state, { payload }) => state.filter(el => el !== payload),
+});
 
 const productsReducer = combineReducers({
   productCategories,
@@ -124,7 +127,7 @@ const productsReducer = combineReducers({
   dataFiltered,
   filteredProducts,
   productsGrid,
-  // filterCategories,
+  filterCategories,
 });
 
 export default productsReducer;
