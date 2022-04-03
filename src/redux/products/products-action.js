@@ -48,5 +48,6 @@ export const fetchFilteredProducts = createAction(
 
 export const showProductPage = createAction('product/showProductPage');
 
+export const filteringByCategory = createAction('products/filteringByCategory');
 export const addCategory = createAction('products/addCategory');
 export const deleteCategory = createAction('products/deleteCategory');

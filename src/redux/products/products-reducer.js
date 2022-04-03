@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import {
   fetchProductCategories,
+  filteringByCategory,
   addCategory,
   deleteCategory,
   fetchProduct,
@@ -32,6 +33,16 @@ const productCategories = createReducer([], {
 
 const products = createReducer([], {
   [fetchProduct]: (_, { payload }) => payload,
+
+  [filteringByCategory]: (state, { payload }) =>
+    state.filter(product => {
+      const categoriesList = Object.values(product._source.SECTIONS);
+      const foundCategory = categoriesList.find(el =>
+        payload.includes(el.NAME),
+      );
+      if (foundCategory) return true;
+      return false;
+    }),
 
   [alphabeticalSorting]: state =>
     state.sort((a, b) => {

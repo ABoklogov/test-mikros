@@ -20,8 +20,11 @@ const ProductList = () => {
   const colors = useSelector(productsSelectors.getColors);
   const filteredProducts = useSelector(productsSelectors.getFilteredProducts);
   const productDisplayGrid = useSelector(productsSelectors.getProductsLocation);
+  const filteredCategories = useSelector(
+    productsSelectors.getFilteredCategories,
+  );
+  //загружаем полный массив товаров и фильтруем по категориям/алфавиту/цене:
 
-  //загружаем полный массив товаров и фильтруем по алфавиту/цене:
   useEffect(() => {
     if (!dataFiltered) dispatch(productsOperations.fetchProducts());
 
@@ -32,6 +35,9 @@ const ProductList = () => {
 
     if (sortOrder === 'base') dispatch(productsOperations.fetchProducts());
 
+    if (filteredCategories.length)
+      dispatch(productsAction.filteringByCategory(filteredCategories));
+
     if (dataFiltered)
       dispatch(productsAction.showProductsFilteredPrice(priceRange));
 
@@ -40,7 +46,15 @@ const ProductList = () => {
 
     if (dataFiltered && colors.length !== 0)
       dispatch(productsAction.showProductsFilteredColors(colors));
-  }, [colors, dataFiltered, dimensions, dispatch, priceRange, sortOrder]);
+  }, [
+    colors,
+    dataFiltered,
+    dimensions,
+    dispatch,
+    filteredCategories,
+    priceRange,
+    sortOrder,
+  ]);
 
   //отфильтрованные товары обрезаем по 20/40/60 штук
   useEffect(() => {
