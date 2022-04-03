@@ -76,7 +76,7 @@ const FilterColors = ({ menuColors, setMenuColors }) => {
               </li>
             ))}
           </ul>
-          <p className={s.showAll}>Показать все</p>
+          {/* <p className={s.showAll}>Показать все</p> */}
         </div>
       )}
     </div>

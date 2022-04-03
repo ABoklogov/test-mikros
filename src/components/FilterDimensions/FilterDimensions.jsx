@@ -77,7 +77,7 @@ const FilterDimensions = ({ menuDimensions, setMenuDimensions }) => {
               />
             </div>
           ))}
-          <p className={s.showAll}>Показать все</p>
+          {/* <p className={s.showAll}>Показать все</p> */}
         </div>
       )}
     </div>
