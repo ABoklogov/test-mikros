@@ -1,10 +1,13 @@
 .box {
+  background-color: var(--green);
+}
+
+.subBox {
   display: flex;
   justify-content: space-between;
   padding: 0 142px;
   padding-top: 8px;
   padding-bottom: 7px;
-  background-color: var(--green);
 }
 
 .text {
