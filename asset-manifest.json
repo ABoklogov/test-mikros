@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/test-mikros/static/css/main.c5fd2e85.css",
-    "main.js": "/test-mikros/static/js/main.904c8abe.js",
+    "main.css": "/test-mikros/static/css/main.6b9356dc.css",
+    "main.js": "/test-mikros/static/js/main.1300012e.js",
     "static/media/product.png": "/test-mikros/static/media/product.8ba82f50ccfb395b94e8.png",
     "static/media/GothamProBlack.ttf": "/test-mikros/static/media/GothamProBlack.889cb46ae48359555229.ttf",
     "static/media/GothamProRegular.eot": "/test-mikros/static/media/GothamProRegular.aa3126db1a25a9cec8f4.eot",
@@ -23,11 +23,11 @@
     "static/media/close.svg": "/test-mikros/static/media/close.2ae23591f5e122f2e14ec8403f6e127b.svg",
     "static/media/arrowBottom.svg": "/test-mikros/static/media/arrowBottom.e46d98df4a11b056675cf9bd33b54526.svg",
     "static/media/arrowMenuFilter.svg": "/test-mikros/static/media/arrowMenuFilter.1a9e9f5b239386a753c96424bb3255d2.svg",
-    "main.c5fd2e85.css.map": "/test-mikros/static/css/main.c5fd2e85.css.map",
-    "main.904c8abe.js.map": "/test-mikros/static/js/main.904c8abe.js.map"
+    "main.6b9356dc.css.map": "/test-mikros/static/css/main.6b9356dc.css.map",
+    "main.1300012e.js.map": "/test-mikros/static/js/main.1300012e.js.map"
   },
   "entrypoints": [
-    "static/css/main.c5fd2e85.css",
-    "static/js/main.904c8abe.js"
+    "static/css/main.6b9356dc.css",
+    "static/js/main.1300012e.js"
   ]
 }
